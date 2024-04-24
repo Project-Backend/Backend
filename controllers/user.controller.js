@@ -12,3 +12,7 @@ module.exports.doregister = (req, res, next) => {
 
     User.create(user)
 }
+
+module.exports.evento = (req, res, next) => {
+    res.render("evento");
+}

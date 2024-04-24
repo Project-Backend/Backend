@@ -10,4 +10,7 @@ router.get('/', (req, res, next) => res.render('home'))
 router.get("/register")
 
 
+router.get("/crearEvento", userController.evento);
+
+
 module.exports = router
