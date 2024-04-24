@@ -7,7 +7,7 @@ const userController = require('../controllers/user.controller')
 
 router.get('/', (req, res, next) => res.render('home'))
 
-router.get("/register")
+router.get("/register", userController.register)
 
 
 module.exports = router
