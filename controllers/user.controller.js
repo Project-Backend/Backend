@@ -10,9 +10,6 @@ module.exports.doregister = (req, res, next) => {
         res.render("register", {errors, values})
     }
 
-    User.create(user)
+    User.create(req.body)
 }
 
-module.exports.evento = (req, res, next) => {
-    res.render("evento");
-}

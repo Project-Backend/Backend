@@ -3,7 +3,7 @@ const REQUIRED_FIELD_ERROR = "Campo requerido"
 
 const eventoSchema = (
     {
-        deporte: { 
+        NombreDelDeporte: { 
         type: String,
         required: [true, REQUIRED_FIELD_ERROR]
     },
@@ -67,6 +67,6 @@ const eventoSchema = (
 
 );
 
-const Event = mongoose.model("Event", bookSchema);
+const Event = mongoose.model("Event", eventoSchema);
 
 module.exports = Event;
