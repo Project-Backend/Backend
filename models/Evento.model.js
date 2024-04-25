@@ -23,7 +23,7 @@ const eventoSchema = (
             type: Date,
             required: [true, REQUIRED_FIELD_ERROR]
         },
-        tiempoDeInscripcion: {
+        tiempoParaCerrarInscripcion: {
             type: Date,
             required: [true, REQUIRED_FIELD_ERROR]
         },
