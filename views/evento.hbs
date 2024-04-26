@@ -30,37 +30,73 @@
         <input type="datetime-local" class="form-control" id="fechaYHoraDelPartido" name="fechaYHoraDelPartido">
     </div>
 </div>
-    </div>
     <div class="row mb-3">
-      <label for="ciudad" class="col-sm-2 col-form-label">Ciudad</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="ciudad" placeholder="Ciudad">
-      </div>
+    <label for="tiempoDeInscripcion" class="col-sm-2 col-form-label">Tiempo de Inscripción</label>
+    <div class="col-sm-10">
+        <input type="datetime-local" class="form-control" id="tiempoDeInscripcion" name="tiempoDeInscripcion">
     </div>
+</div>
     <div class="row mb-3">
-      <label for="ciudad" class="col-sm-2 col-form-label">Ciudad</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="ciudad" placeholder="Ciudad">
-      </div>
+    <label for="duracionDelPartido" class="col-sm-2 col-form-label">Duración del Partido</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="duracionDelPartido" name="duracionDelPartido" pattern="[0-2][0-9]:[0-5][0-9]" maxlength="5" placeholder="hh:mm">
     </div>
+</div>
     <div class="row mb-3">
-      <label for="ciudad" class="col-sm-2 col-form-label">Ciudad</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="ciudad" placeholder="Ciudad">
-      </div>
+    <label for="numeroDeJugadores" class="col-sm-2 col-form-label">Número de Jugadores</label>
+    <div class="col-sm-10">
+        <input type="number" class="form-control" id="numeroDeJugadores" name="numeroDeJugadores" min="1">
     </div>
+</div>
     <div class="row mb-3">
-      <label for="ciudad" class="col-sm-2 col-form-label">Ciudad</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="ciudad" placeholder="Ciudad">
-      </div>
+    <label for="precioPorPersona" class="col-sm-2 col-form-label">Precio por Persona</label>
+    <div class="col-sm-10">
+        <div class="input-group">
+            <input type="number" class="form-control" id="precioPorPersona" name="precioPorPersona" min="0.01" step="0.01">
+            <span class="input-group-text">$</span>
+        </div>
     </div>
+</div>
     <div class="row mb-3">
-      <label for="ciudad" class="col-sm-2 col-form-label">Ciudad</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="ciudad" placeholder="Ciudad">
-      </div>
+    <label for="sexo" class="col-sm-2 col-form-label">Sexo</label>
+    <div class="col-sm-10">
+        <select class="form-select" id="sexo" name="sexo" aria-label="Sexo">
+            <option value="Mixto" selected>Mixto</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+        </select>
     </div>
-    
+</div>
+<div class="row mb-3">
+      <label for="sexo" class="col-sm-2 col-form-label">Nivel</label>
+      <div class="col-sm-10">
+        <div class="row">
+          <div class="col">
+            <label for="desde" class="form-label"></label>
+            <select class="form-select" id="desde" name="desde">
+              <option value="" disabled selected hidden>Desde</option>
+              <option value="mixto">Iniciación</option>
+              <option value="masculino">Principiante</option>
+              <option value="femenino">Medio</option>
+              <option value="femenino">Avanzado</option>
+            </select>
+          </div>
+          <div class="col">
+            <label for="hasta" class="form-label"></label>
+            <select class="form-select" id="hasta" name="hasta">
+              <option value="" disabled selected hidden>Hasta</option>
+              <option value="mixto">Iniciación</option>
+              <option value="masculino">Principiante</option>
+              <option value="femenino">Medio</option>
+              <option value="femenino">Avanzado</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div> 
+<div class="row mb-3">
+  <label for="normas" class="form-label">Normas</label>
+  <textarea class="form-control" id="normas" rows="3" name="normas"></textarea>
+</div>   
   </form>
 </div>

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const events = require('../models/Evento.model')
+const Event = require('../models/Evento.model')
 const eventsWithJSON = require('../data/events.json')
 
 require('../config/db.config')
