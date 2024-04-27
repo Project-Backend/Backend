@@ -4,7 +4,7 @@ const Evento = require("../models/Evento.model")
 
 
 module.exports.evento = (req, res, next) => {
-    res.render("eventos/eventos");
+    res.render("evento");
 }
 module.exports.doEvento = (req, res, next) => {
 const renderWithErros = (errors, values) => {

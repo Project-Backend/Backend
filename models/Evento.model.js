@@ -3,7 +3,7 @@ const REQUIRED_FIELD_ERROR = "Campo requerido"
 
 const eventoSchema = (
     {
-        NombreDelDeporte: { 
+        nombreDelDeporte: { 
         type: String,
         required: [true, REQUIRED_FIELD_ERROR]
     },
