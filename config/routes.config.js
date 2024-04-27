@@ -12,6 +12,7 @@ router.get("/register", userController.register)
 
 
 router.get("/crearEvento", eventoController.evento);
+router.post("/crearEvento", eventoController.doEvento)
 
 
 module.exports = router

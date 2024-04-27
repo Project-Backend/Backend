@@ -3,7 +3,7 @@ const REQUIRED_FIELD_ERROR = "Campo requerido"
 
 const eventoSchema = (
     {
-        NombreDelDeporte: { 
+        nombreDelDeporte: { 
         type: String,
         required: [true, REQUIRED_FIELD_ERROR]
     },
@@ -27,8 +27,8 @@ const eventoSchema = (
             type: Date,
             required: [true, REQUIRED_FIELD_ERROR]
         },
-        duracion: {
-            type: Number,
+        duracionDelPartido: {
+            type: String,
             required: [true, REQUIRED_FIELD_ERROR]
         },
         numeroDeJugadores: {
@@ -42,9 +42,10 @@ const eventoSchema = (
         sexo: {
             type: String,
             enum: ["Masculino", "Femenino", "Mixto"],
-            required: [true, REQUIRED_FIELD_ERROR]
+            default: "Mixto",
+            required: [true, REQUIRED_FIELD_ERROR],
         },
-        nivelDelPartido: {
+        nivel: {
             type: Object,
             required: [true, REQUIRED_FIELD_ERROR],
             desde : {

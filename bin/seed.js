@@ -1,27 +1,30 @@
 const mongoose = require('mongoose')
-const events = require('../models/Evento.model')
+const Event = require('../models/Evento.model')
 const eventsWithJSON = require('../data/events.json')
 
-require('../config/db.config')
+require('../config/db.config');
 
+mongoose.connection.once('open', () => {
 
-mongoose.connect("mongodb://localhost:27017/myapp", { useNewUrlParser: true, useUnifiedTopology: true })
+    mongoose.connection.dropCollection('events')
     .then(() => {
-        console.log("Connected to MongoDB");
+        console.log('database cleared')
 
-       
-        Promise.all(eventsWithJSON.map(event => {
-            return Event.create(event);
-        }))
-            .then(createdEvents => {
-                console.log("Events created successfully:", createdEvents);
-                mongoose.disconnect(); 
-            })
-            .catch(error => {
-                console.error("Error creating events:", error);
-                mongoose.disconnect(); 
-            });
+        return events.create(eventsWithJSON)
     })
-    .catch(error => {
-        console.error("Error connecting to MongoDB:", error);
-    });
+
+    .then(newEvents => {
+        newEvents.forEach((event) => {
+            console.log(`${event.NombreDelDeporte} has been created`)
+        })
+        console.log(`${newEvents.length} books have been created`);
+    })
+    .catch(err => console.error(err))
+    .finally(() => {
+        mongoose.connection.close()
+            .then(() => console.log('Connection closed'))
+            .catch(err => console.log('Error disconnectiong:', err))
+            .finally(() => process.exit(0))
+    })
+
+})
