@@ -8,7 +8,7 @@ const eventoController = require("../controllers/evento.controller")
 
 router.get('/', (req, res, next) => res.render('home'))
 
-router.get("/register")
+router.get("/register", userController.register)
 
 
 router.get("/crearEvento", eventoController.evento);
