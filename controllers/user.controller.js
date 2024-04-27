@@ -5,7 +5,7 @@ module.exports.register = (req, res, next) => {
     res.render('register')
 }
 
-module.exports.doregister = (req, res, next) => {
+module.exports.doegister = (req, res, next) => {
     const renderWithErros = (errors, values) => {
         res.render("register", {errors, values})
     }
