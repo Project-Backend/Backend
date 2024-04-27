@@ -28,7 +28,7 @@ const eventoSchema = (
             required: [true, REQUIRED_FIELD_ERROR]
         },
         duracionDelPartido: {
-            type: Number,
+            type: String,
             required: [true, REQUIRED_FIELD_ERROR]
         },
         numeroDeJugadores: {
