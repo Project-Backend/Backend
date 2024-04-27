@@ -1,3 +1,78 @@
-<div class="container">
-    <h1>Home</h1>
+{{!-- <div class="container mt-3">
+  <form action="/events" method="GET">
+    <div>
+      <label for="nombre">Nombre del deporte</label>
+      <input id="nombre" type="text" name="nombre">
+    </div>
+
+    <div>
+      <label for="provincia">Provincia</label>
+      <input id="provincia" type="text" name="provincia">
+    </div>
+
+    <div>
+      <label for="ciudad">Ciudad</label>
+      <input id="ciudad" type="text" name="ciudad">
+    </div>
+
+    <div>
+      <label for="minPrice">Precio mínimo por persona</label>
+      <input id="minPrice" type="number" name="minPrice">
+    </div>
+    <div>
+      <label for="maxPrice">Precio máximo por persona</label>
+      <input id="maxPrice" type="number" name="maxPrice">
+    </div>
+
+    <div>
+      <label for="nivel">Nivel</label>
+      <select id="nivel" name="nivel">
+        <option value="Iniciación">Iniciación</option>
+        <option value="Principiante">Principiante</option>
+        <option value="Medio">Medio</option>
+        <option value="Avanzado">Avanzado</option>
+      </select>
+    </div>
+
+    <button class="btn btn-outline-primary">Filtrar</button>
+    <a class="btn btn-secondary" href="/events">Limpiar filtros</a>
+  </form>
+
+  <h1>Eventos disponibles</h1>
+
+  {{#if events}}
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      {{#each events as |event|}}
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{event.nombre}}</h5>
+              <p class="card-text">Provincia: {{event.provincia}}</p>
+              <p class="card-text">Ciudad: {{event.ciudad}}</p>
+              <p class="card-text">Precio: {{event.precio}}</p>
+              <p class="card-text">Nivel: {{event.nivel.desde}} - {{event.nivel.hasta}}</p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <p>No hay eventos disponibles con los filtros seleccionados</p>
+  {{/if}}
+</div> --}}
+
+<div class="container my-3">
+    <div class="row row-cols-1 row-cols-md-2">
+        <div class="col">
+            <img class="img-fluid w-100" src="https://placehold.co/400x500" alt="">
+        </div>
+        <div class="col">
+            <h1>{{event.NombreDelDeporte}}</h1>
+            <p><strong>Provincia:</strong> {{event.provincia}}</p>
+            <p><strong>Ciudad:</strong> {{event.ciudad}}</p>
+            <p><strong>Precio:</strong> {{event.precioPorPersona}}</p>
+            <p><strong>Nivel:</strong> {{event.nivelDelPartido.desde}} - {{event.nivelDelPartido.hasta}}</p>
+        </div>
+    </div>
 </div>
+

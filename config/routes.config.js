@@ -15,4 +15,5 @@ router.get("/crearEvento", eventoController.evento);
 router.post("/crearEvento", eventoController.doEvento)
 
 
-module.exports = router
+//eventos
+module.exports =  router

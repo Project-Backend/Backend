@@ -30,7 +30,7 @@ const userSchema = mongoose.Schema(
 );
 
 userSchema.methods.checkPassword = function(passwordToCompare) {
-    return bcrypt.compare(passwordToComoare, this.password)
+    return bcrypt.compare(passwordToCompare, this.password)
 };
 
 userSchema.pre('save', function (next) {

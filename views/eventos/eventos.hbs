@@ -1,0 +1,47 @@
+<div class="container mt-3">
+    <form action = "/evento" method = "GET">
+    {{#each eventos}}
+    <button class ="btn btn-outline-secondary" type=" submit" name="evento" value="{{evento}}">{{evento}}</button>
+    </form>
+
+    <div>
+        <label for ="nombre">Nombre del Deporte</label>
+        <input id ="nombre" type="text" name="nombre">
+    </div>
+    <div>
+        <label for="provincia">Provincia</label>
+        <input id="provincia" type="text" name="provincia">
+    </div>
+    <div>
+        <label for="ciudad">Ciudad</label>
+        <input id="provincia" type="text" name="ciudad">
+    </div>
+    <div>
+        <label for="precio">Precio</label>
+        <input id="nombre" type="text" name="nombre">
+    </div>
+    <div>
+        <label for="nivel">Nivel</label>
+        <input id="nivel" type="text" name="nivel">
+    </div>
+
+    {{#if events}}
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {{#each events as |event|}}
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{event.nombre}}</h5>
+                    <p class="card-text">Provincia: {{event.provincia}}</p>
+                    <p class="card-text">Ciudad: {{event.ciudad}}</p>
+                    <p class="card-text">Precio: {{event.precio}}</p>
+                    <p class="card-text">Nivel: {{event.nivel.desde}} - {{event.nivel.hasta}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <p>No hay eventos disponibles con los filtros seleccionados</p>
+    {{/if}}
+</div>

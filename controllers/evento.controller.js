@@ -13,7 +13,7 @@ const renderWithErros = (errors, values) => {
 
 Evento.create(req.body)
 .then(() => {
-    res.redirect("/home");
+    res.redirect("/");
 })
 .catch((err) => {
     if(err instanceof mongoose.Error.ValidatorError){
@@ -23,3 +23,4 @@ Evento.create(req.body)
     }
 })
 }
+
