@@ -9,8 +9,9 @@ module.exports.doRegister = (req, res, next) => {
     const renderWithErrors = (errors, values) => {
       res.render('register', { errors, values })
     }
+    console.log('req.body', req.body)
   
-    User.create({...req.body, avatar: req.file.path })
+    User.create(req.body)
       .then(() => {
         res.redirect('/login');
       })
@@ -23,7 +24,9 @@ module.exports.doRegister = (req, res, next) => {
       })
   }
 
- 
+  module.exports.login = (req, res, next) => {
+    res.render('login')
+}
   
 
 

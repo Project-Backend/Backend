@@ -1,7 +1,7 @@
 const expressSession = require('express-session')
 const MongoStore = require('connect-mongo')
 const DB = require('./db.config')
-const { populate } = require('../models/User.model')
+const User = require('../models/User.model')
 
 
 const MAX_AGE = 7
