@@ -1,71 +1,70 @@
 [
-{
-    "NombreDelDeporte": "Football",
-    "provincia": "Madrid",
-    "ciudad": "Madrid",
-    "lugarDelPartido": "Estadio Santiago Bernabéu",
-    "fechaYHoraDelPartido": "2024-04-25T18:00:00.000Z",
-    "tiempoDeInscripcion": "2024-04-20T00:00:00.000Z",
-    "duracion": 90,
-    "numeroDeJugadores": 22,
-    "precioPorPersona": 10,
-    "sexo": "Mixto",
-    "nivelDelPartido": {
-        "desde": "Principiante",
-        "hasta": "Medio"
+    {
+        "nombreDelDeporte": "Football",
+        "provincia": "Madrid",
+        "ciudad": "Madrid",
+        "lugarDelPartido": "Estadio Santiago Bernabéu",
+        "fechaYHoraDelPartido": "2024-04-25T18:00:00.000Z",
+        "tiempoDeInscripcion": "2024-04-20T00:00:00.000Z",
+        "duracionDelPartido": 90,
+        "numeroDeJugadores": 22,
+        "precioPorPersona": 10,
+        "sexo": "Mixto",
+        "nivelDelPartido": {
+            "desde": "Principiante",
+            "hasta": "Medio"
+        },
+        "normas": "Se aplicarán las reglas estándar de la FIFA."
     },
-    "normas": "Se aplicarán las reglas estándar de la FIFA."
-},
-
-{
-    "NombreDelDeporte": "Basketball",
-    "provincia": "California",
-    "ciudad": "Los Angeles",
-    "lugarDelPartido": "Staples Center",
-    "fechaYHoraDelPartido": "2024-05-10T20:00:00.000Z",
-    "tiempoDeInscripcion": "2024-04-25T00:00:00.000Z",
-    "duracion": 120,
-    "numeroDeJugadores": 10,
-    "precioPorPersona": 15,
-    "sexo": "Masculino",
-    "nivelDelPartido": {
-        "desde": "Medio",
-        "hasta": "Avanzado"
+    {
+        "nombreDelDeporte": "Basketball",
+        "provincia": "California",
+        "ciudad": "Los Angeles",
+        "lugarDelPartido": "Staples Center",
+        "fechaYHoraDelPartido": "2024-05-10T20:00:00.000Z",
+        "tiempoDeInscripcion": "2024-04-25T00:00:00.000Z",
+        "duracionDelPartido": 120,
+        "numeroDeJugadores": 10,
+        "precioPorPersona": 15,
+        "sexo": "Masculino",
+        "nivelDelPartido": {
+            "desde": "Medio",
+            "hasta": "Avanzado"
+        },
+        "normas": "Se seguirán las reglas de la NBA."
     },
-    "normas": "Se seguirán las reglas de la NBA."
-},
-{
-    "NombreDelDeporte": "Tennis",
-    "provincia": "Florida",
-    "ciudad": "Miami",
-    "lugarDelPartido": "Key Biscayne Tennis Center",
-    "fechaYHoraDelPartido": "2024-06-15T10:00:00.000Z",
-    "tiempoDeInscripcion": "2024-06-01T00:00:00.000Z",
-    "duracion": 90,
-    "numeroDeJugadores": 2,
-    "precioPorPersona": 20,
-    "sexo": "Mixto",
-    "nivelDelPartido": {
-        "desde": "Principiante",
-        "hasta": "Medio"
+    {
+        "nombreDelDeporte": "Tennis",
+        "provincia": "Florida",
+        "ciudad": "Miami",
+        "lugarDelPartido": "Key Biscayne Tennis Center",
+        "fechaYHoraDelPartido": "2024-06-15T10:00:00.000Z",
+        "tiempoDeInscripcion": "2024-06-01T00:00:00.000Z",
+        "duracionDelPartido": 90,
+        "numeroDeJugadores": 2,
+        "precioPorPersona": 20,
+        "sexo": "Mixto",
+        "nivelDelPartido": {
+            "desde": "Principiante",
+            "hasta": "Medio"
+        },
+        "normas": "Se aplicarán las reglas estándar de la ATP."
     },
-    "normas": "Se aplicarán las reglas estándar de la ATP."
-},
-{
-    "NombreDelDeporte": "Volleyball",
-    "provincia": "Texas",
-    "ciudad": "Austin",
-    "lugarDelPartido": "Austin Sports Center",
-    "fechaYHoraDelPartido": "2024-07-20T14:00:00.000Z",
-    "tiempoDeInscripcion": "2024-07-01T00:00:00.000Z",
-    "duracion": 60,
-    "numeroDeJugadores": 12,
-    "precioPorPersona": 10,
-    "sexo": "Mixto",
-    "nivelDelPartido": {
-        "desde": "Iniciación",
-        "hasta": "Principiante"
-    },
-    "normas": "Se seguirán las reglas estándar de la FIVB."
-}
+    {
+        "nombreDelDeporte": "Volleyball",
+        "provincia": "Texas",
+        "ciudad": "Austin",
+        "lugarDelPartido": "Austin Sports Center",
+        "fechaYHoraDelPartido": "2024-07-20T14:00:00.000Z",
+        "tiempoDeInscripcion": "2024-07-01T00:00:00.000Z",
+        "duracionDelPartido": 60,
+        "numeroDeJugadores": 12,
+        "precioPorPersona": 10,
+        "sexo": "Mixto",
+        "nivelDelPartido": {
+            "desde": "Iniciación",
+            "hasta": "Principiante"
+        },
+        "normas": "Se seguirán las reglas estándar de la FIVB."
+    }
 ]

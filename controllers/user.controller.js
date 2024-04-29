@@ -9,7 +9,6 @@ module.exports.doRegister = (req, res, next) => {
     const renderWithErrors = (errors, values) => {
       res.render('register', { errors, values })
     }
- Register
   
     User.create({...req.body, avatar: req.file.path })
       .then(() => {
@@ -23,10 +22,11 @@ module.exports.doRegister = (req, res, next) => {
         }
       })
   }
+
+ 
   
 
 
-    User.create(req.body)
-}
 
- main
+
+ 

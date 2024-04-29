@@ -16,4 +16,8 @@ router.post("/crearEvento", eventoController.doEvento)
 
 
 //eventos
+
+
+router.get("/eventos/list-eventos", eventoController.getEvents)
+router.get("/eventos/:id/detail", eventoController.getEventsId)
 module.exports =  router

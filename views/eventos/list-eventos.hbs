@@ -1,0 +1,22 @@
+<h1 class="titlepage text-center mt-4">Eventos Deportivos</h1>
+<h3 class="titlepage text-center">Eventos</h3>
+
+<div class="row justify-content-center flex-wrap mt-3 gap-3">
+    {{#each events}}
+    <div class="event card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{nombreDelDeporte}}</h5>
+            <p class="card-text">Provincia: {{provincia}}</p>
+            <p class="card-text">Ciudad: {{ciudad}}</p>
+            <p class="card-text">Lugar del partido: {{lugarDelPartido}}</p>
+            <p class="card-text">Fecha y Hora del partido: {{fechaYHoraDelPartido}}</p>
+            <p class="card-text">Duración del partido: {{duracionDelPartido}} minutos</p>
+            <p class="card-text">Número de Jugadores: {{numeroDeJugadores}}</p>
+            <p class="card-text">Precio por Persona: {{precioPorPersona}}</p>
+            <p class="card-text">Sexo: {{sexo}}</p>
+            <p class="card-text">Normas: {{normas}}</p>
+            <a href="/eventos/{{_id}}/detail" class="btn btn-primary">Ver Más</a>
+        </div>
+    </div>
+    {{/each}}
+</div>
