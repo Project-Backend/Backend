@@ -75,7 +75,7 @@ const eventoSchema = new mongoose.Schema(
 );
 
 eventoSchema.virtual("registros", {
-    ref: Registrar.modelName,
+    ref: "Registrar",
     foreignField: "Event",
     localField: "_id",
     justOne: false,
