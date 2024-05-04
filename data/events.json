@@ -10,7 +10,7 @@
         "numeroDeJugadores": 22,
         "precioPorPersona": 10,
         "sexo": "Mixto",
-        "nivelDelPartido": {
+        "nivel": {
             "desde": "Principiante",
             "hasta": "Medio"
         },
@@ -27,7 +27,7 @@
         "numeroDeJugadores": 10,
         "precioPorPersona": 15,
         "sexo": "Masculino",
-        "nivelDelPartido": {
+        "nivel": {
             "desde": "Medio",
             "hasta": "Avanzado"
         },
@@ -44,7 +44,7 @@
         "numeroDeJugadores": 2,
         "precioPorPersona": 20,
         "sexo": "Mixto",
-        "nivelDelPartido": {
+        "nivel": {
             "desde": "Principiante",
             "hasta": "Medio"
         },
@@ -61,7 +61,7 @@
         "numeroDeJugadores": 12,
         "precioPorPersona": 10,
         "sexo": "Mixto",
-        "nivelDelPartido": {
+        "nivel": {
             "desde": "Iniciación",
             "hasta": "Principiante"
         },

@@ -3,7 +3,7 @@ const router = require('express').Router()
 const userController = require('../controllers/user.controller')
 const eventoController = require("../controllers/evento.controller")
 const authController = require("../controllers/auth.controller")
-
+const registrarController = require("../controllers/registrar.controller")
 //const authMiddleware = require('../middlewares/authMiddleware')
 
 router.get('/', (req, res, next) => res.render('home'))
@@ -24,4 +24,5 @@ router.post("/crearEvento", eventoController.doEvento)
 
 router.get("/eventos/list-eventos", eventoController.getEvents)
 router.get("/eventos/:id/detail", eventoController.getEventsId)
+router.post("/eventos/:id/registrar", registrarController.doRegister)
 module.exports =  router

@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Evento = require("../models/Evento.model");
 const { Router } = require("express");
 const createHttpError = require("http-errors");
+const Registrar = require("../models/Registrar.model")
 
 
 
@@ -18,7 +19,7 @@ req.body.nivel = {
 }
 Evento.create(req.body)
 .then(() => {
-    res.redirect("/");
+    res.redirect("/eventos/list-eventos");
 })
 .catch((err) => {
     if(err instanceof mongoose.Error.ValidatorError){
@@ -30,7 +31,7 @@ Evento.create(req.body)
 }
 
 module.exports.getEvents = (req, res, next) => {
-    const { provincia, ciudad, precio, nivel } = req.query;
+    /*const { provincia, ciudad, precio, nivel } = req.query;
 
     const query = {};
 
@@ -48,9 +49,9 @@ module.exports.getEvents = (req, res, next) => {
 
     if (nivel) {
         query['nivel.desde'] = nivel;
-    }
+    }*/
 
-    Evento.find(query)
+    Evento.find()
         .then(events => {
             res.render('eventos/list-eventos', { events });
         })
@@ -58,13 +59,24 @@ module.exports.getEvents = (req, res, next) => {
 };
 
 module.exports.getEventsId = (req, res, next) => {
-    Evento
-    .findById(req.params.id)
+    Evento.findById(req.params.id)
+    .populate({path: "registros", populate: {path: "user", select: "username"}})
     .then(eventos => {
         if(!eventos) {
             next(createHttpError(404, 'Evento no encontrado'))
         }
-        res.render('eventos/detail', { eventos })
+        if(req.currentUser){
+            Registrar.findOne({user: req.currentUser._id, evento: req.params.id})
+            .then(registro => {
+                if(registro){
+                    res.render("eventos/detail", {eventos, registrado: Boolean(registro) })
+                } else {
+                    res.render("eventos/detail", {eventos})
+                }
+            })
+        } else {res.render('eventos/detail', { eventos })
+    }
+        
     })
     .catch(err => next(err))    
 }

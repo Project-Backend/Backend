@@ -4,12 +4,25 @@
             <img class="img-fluid w-100" src="https://placehold.co/400x500" alt="">
         </div>
         <div class="col">
-            <h1>{{nombreDelDeporte}}</h1>
-            <p><strong>Fecha y Hora:</strong> {{FechaYHora}}</p>
-            <p><strong>Tiempo de Inscripción:</strong> {{tiempodeinscripcion}}</p>
-            <p><strong>Duración del Partido:</strong> {{duracionDelpartido}}</p>
-            <p><strong>Nivel del Partido (desde):</strong> {{niveldelPartido.desde}}</p>
-            <p><strong>Nivel del Partido (hasta):</strong> {{niveldelPartido.hasta}}</p>
+            <h1>{{eventos.nombreDelDeporte}}</h1>
+            <p><strong>Fecha y Hora:</strong> {{eventos.fechaYHoraDelPartido}}</p>
+            <p><strong>Tiempo de Inscripción:</strong> {{eventos.tiempoDeInscripcion}}</p>
+            <p><strong>Duración del Partido:</strong> {{eventos.duracionDelPartido}}</p>
+            <p><strong>Nivel del Partido (desde):</strong> {{eventos.nivel.desde}}</p>
+            <p><strong>Nivel del Partido (hasta):</strong> {{eventos.nivel.hasta}}</p>
+             <form action="/eventos/{{eventos._id}}/registrar" method="POST">
+        <button class="btn {{#if registrado}}btn-danger{{else}}btn-outline-danger{{/if}}">Registrar/Cancelar</button>
+      </form> <!--registrado lo he nombrado yo en evento.controller -->
+       {{#if evento.registros}}
+       <div class="mt-3">
+       
+                <h3>{{evento.registros.length}}Usuarios Registrados:</h3>
+                <ul>
+                    {{#each evento.registros as |resgistro|}} <!-- evento es el nombre que le he puesto para acceder a el en evento.controller y registros es el virtual en el modelo evento -->
+                        <li>{{registro.user.username}}</li>
+                    {{/each}}
+                </ul>
         </div>
+        {{/if}}
     </div>
 </div>

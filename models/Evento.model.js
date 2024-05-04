@@ -1,7 +1,8 @@
 const mongoose = require("mongoose")
 const REQUIRED_FIELD_ERROR = "Campo requerido"
-
-const eventoSchema = (
+const User = require("./User.model");
+const Registrar = require("./Registrar.model")
+const eventoSchema = new mongoose.Schema(
     {
         nombreDelDeporte: { 
         type: String,
@@ -64,9 +65,22 @@ const eventoSchema = (
             type: String,
         },
 
+        usuario: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+            required: true
+        }
     }
 
 );
+
+eventoSchema.virtual("registros", {
+    ref: Registrar.modelName,
+    foreignField: "Event",
+    localField: "_id",
+    justOne: false,
+})
+
 
 const Event = mongoose.model("Event", eventoSchema);
 

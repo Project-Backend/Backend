@@ -10,14 +10,14 @@ mongoose.connection.once('open', () => {
     .then(() => {
         console.log('database cleared')
 
-        return events.create(eventsWithJSON)
+        return Event.create(eventsWithJSON)
     })
 
     .then(newEvents => {
         newEvents.forEach((event) => {
-            console.log(`${event.NombreDelDeporte} has been created`)
+            console.log(`${event.nombreDelDeporte} has been created`)
         })
-        console.log(`${newEvents.length} books have been created`);
+        console.log(`${newEvents.length} events have been created`);
     })
     .catch(err => console.error(err))
     .finally(() => {
