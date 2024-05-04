@@ -76,7 +76,7 @@ const eventoSchema = new mongoose.Schema(
 
 eventoSchema.virtual("registros", {
     ref: "Registrar",
-    foreignField: "Event",
+    foreignField: "evento",
     localField: "_id",
     justOne: false,
 })
