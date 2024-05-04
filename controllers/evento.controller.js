@@ -66,6 +66,11 @@ module.exports.getEventsId = (req, res, next) => {
         if(!event) {
             next(createHttpError(404, 'Evento no encontrado'))
         }
+        console.log("Número de jugadores permitidos:", event.registros.length);
+        if (event.registros.length >= event.numeroDeJugadores){
+             res.render("eventos/detail", {event, registroCerrado: true})
+             return
+        }
         if(req.currentUser){
             Registrar.findOne({user: req.currentUser._id, evento: req.params.id})
             .then(registro => {

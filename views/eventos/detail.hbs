@@ -10,13 +10,18 @@
             <p><strong>Duración del Partido:</strong> {{event.duracionDelPartido}}</p>
             <p><strong>Nivel del Partido (desde):</strong> {{event.nivel.desde}}</p>
             <p><strong>Nivel del Partido (hasta):</strong> {{event.nivel.hasta}}</p>
+            <p><strong>Número de jugadores:</strong> {{event.numeroDeJugadores}}</p>
+             {{#unless registroCerrado}}
              <form action="/eventos/{{event._id}}/registrar" method="POST">
+            
         <button class="btn {{#if registrado}}btn-danger{{else}}btn-outline-danger{{/if}}">Registrar/Cancelar</button>
-      </form> <!--registrado lo he nombrado yo en evento.controller -->
+      </form>
+       {{/unless}}
+       <!--registrado lo he nombrado yo en evento.controller -->
        {{#if event.registros}}
        <div class="mt-3">
        
-                <h3>{{event.registros.length}}Usuarios Registrados:</h3>
+                <h3>{{event.registros.length}}Usuarios Registrados:</h3> <!-- este registros viene con el nombre que le doy en el virtualSchema-->
                 <ul>
                     {{#each event.registros as |registro|}} <!-- evento es el nombre que le he puesto para acceder a el en evento.controller y registros es el virtual en el modelo evento -->
                         <li>{{registro.user.username}}</li>

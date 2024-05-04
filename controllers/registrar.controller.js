@@ -3,6 +3,7 @@ const Registrar = require('../models/Registrar.model')
 module.exports.doRegister = (req, res, next) => {
 console.log({ user: req.currentUser._id, evento: req.params.id })
   Registrar.findOne({ user: req.currentUser._id, evento: req.params.id })
+  
     .then((registro) => {
       if (registro) {
         // Si hay registro se borra
