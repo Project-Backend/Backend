@@ -17,6 +17,7 @@ req.body.nivel = {
     desde: req.body.desde,
     hasta: req.body.hasta,
 }
+req.body.usuario = req.currentUser._id
 Evento.create(req.body)
 .then(() => {
     res.redirect("/eventos/list-eventos");

@@ -25,8 +25,8 @@ module.exports.getCurrentCurrentUser = (req, res, next) => {
     if(req.session.userId){
         User.findById(req.session.userId)
         .then(user => {
-            req.currentUser = user
-            res.locals.currentUser = user
+            req.currentUser = user //para poder usar currentUser en sesion
+            res.locals.currentUser = user // es para poder pasarselo a todas las vistas de hbs
             next()
         })
         .catch(err => next(err))

@@ -13,12 +13,12 @@
              <form action="/eventos/{{eventos._id}}/registrar" method="POST">
         <button class="btn {{#if registrado}}btn-danger{{else}}btn-outline-danger{{/if}}">Registrar/Cancelar</button>
       </form> <!--registrado lo he nombrado yo en evento.controller -->
-       {{#if evento.registros}}
+       {{#if eventos.registros}}
        <div class="mt-3">
        
-                <h3>{{evento.registros.length}}Usuarios Registrados:</h3>
+                <h3>{{eventos.registros.length}}Usuarios Registrados:</h3>
                 <ul>
-                    {{#each evento.registros as |resgistro|}} <!-- evento es el nombre que le he puesto para acceder a el en evento.controller y registros es el virtual en el modelo evento -->
+                    {{#each eventos.registros as |resgistro|}} <!-- evento es el nombre que le he puesto para acceder a el en evento.controller y registros es el virtual en el modelo evento -->
                         <li>{{registro.user.username}}</li>
                     {{/each}}
                 </ul>

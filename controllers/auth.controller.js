@@ -25,7 +25,7 @@ module.exports.doLogin = (req, res, next) => {
             return user.checkPassword(password)
             .then((match) => {
                 if(match){
-                    req.session.userId = user._id;
+                    req.session.userId = user._id; // aqui se le pasa el id del usuario a la sesion
                     res.redirect("/");
                 } else {
                     renderWithErrors(LOGIN_ERROR_MESSAGE,{email})
