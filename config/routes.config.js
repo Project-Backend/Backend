@@ -25,4 +25,7 @@ router.post("/crearEvento", eventoController.doEvento)
 router.get("/eventos/list-eventos", eventoController.getEvents)
 router.get("/eventos/:id/detail", eventoController.getEventsId)
 router.post("/eventos/:id/registrar", registrarController.doRegister)
+router.get("/eventos/:id/edit", eventoController.editEvent)
+router.post("/eventos/:id/edit", eventoController.doEditEvent)
+router.get("/eventos/:id/delete", eventoController.deleteEvent)
 module.exports =  router

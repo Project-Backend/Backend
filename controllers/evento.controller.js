@@ -81,5 +81,41 @@ module.exports.getEventsId = (req, res, next) => {
     .catch(err => next(err))    
 }
 
+//edit the event
+module.exports.editEvent = (req, res, next) => {
+    Evento
+    .findById(req.params.id)
+    .then(evento => {
+        if(!evento) {
+            next(createHttpError(404, 'Evento no encontrado'))
+        } else {
+            res.render("eventos/edit", {evento})
+        }
+    })
+    .catch(err => next(err))
+}
 
+module.exports.doEditEvent = (req, res, next) => {
+    Evento
+    .findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then(evento => {
+        if(!evento) {
+            next(createHttpError(404, 'Evento no encontrado'))
+        } else {
+            res.redirect(`/eventos/${req.params.id}/detail`)
+        }
+    })
+}
 
+module.exports.deleteEvent = (req, res, next) => {
+    Evento
+    .findByIdAndDelete(req.params.id)
+    .then(evento => {
+        if(!evento) {
+            next(createHttpError(404, 'Evento no encontrado'))
+        } else {
+            res.redirect("/eventos/list-eventos")
+        }
+    })
+    .catch(err => next(err))
+}

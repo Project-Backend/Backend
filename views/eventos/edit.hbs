@@ -1,0 +1,27 @@
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-6">
+            <img class="img-fluid w-100" src="https://placehold.co/400x500" alt="">
+        </div>
+        <div class="col-md-6">
+            <h1>{{nombreDelDeporte}}</h1>
+            <p><strong>Fecha y Hora:</strong> {{FechaYHora}}</p>
+            <p><strong>Tiempo de Inscripción:</strong> {{tiempodeinscripcion}}</p>
+            <p><strong>Duración del Partido:</strong> {{duracionDelpartido}}</p>
+            <p><strong>Nivel del Partido (desde):</strong> {{niveldelPartido.desde}}</p>
+            <p><strong>Nivel del Partido (hasta):</strong> {{niveldelPartido.hasta}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 mt-3">
+            {{#if currentUser}}
+            <form action="/eventos/{{_id}}/edit" method="GET">
+                <button type="submit" class="btn btn-primary">Edit Event</button>
+            </form>
+            <form action="/eventos/{{_id}}/detail" method="POST">
+                <button type="submit" class="btn btn-danger" id="deleteEventBtn">Delete Event</button>
+            </form>
+            {{/if}}
+        </div>
+    </div>
+</div>
