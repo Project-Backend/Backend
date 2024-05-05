@@ -4,6 +4,7 @@ const DB = require('./db.config')
 const User = require('../models/User.model')
 
 
+
 const MAX_AGE = 7
 
 module.exports.sessionConfig = expressSession({

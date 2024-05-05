@@ -21,4 +21,3 @@ console.log({ user: req.currentUser._id, evento: req.params.id })
     })
     .catch(err => next(err))
 }
-  

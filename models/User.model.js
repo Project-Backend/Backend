@@ -9,22 +9,26 @@ const SALT_ROUNDS = 10
 const userSchema = mongoose.Schema(
     {
         username: {
-            type: "String",
+            type: String,
             required: true,
             trim: true
         },
         
         email: {
-            type: "String",
+            type: String,
             required: true,
             trim: true,
             unique: true
         },
 
         password : {
-            type: "String",
+            type: String,
             required: true,
             minlength : [3, "Password must be atleast 3 characters long"]
+        },
+
+        imgUrl: {
+            type: String
         }
     }
 );
