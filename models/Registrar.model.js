@@ -1,18 +1,18 @@
 const mongoose = require("mongoose");
 const User = require("./User.model")
-const Evento = require("./Evento.model")
+const Event = require("./Evento.model")
 
 const registrarSchema = mongoose.Schema(
 {
     user: {
-        type: mongoose.SchemaTypes.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-        require: true,
+        required: true,
     },
     evento: {
-        type: mongoose.SchemaTypes.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Evento",
-        require: true,
+        required: true,
     }
 }
 )

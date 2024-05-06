@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const User = require('../models/User.model')
+const Registrar = require("../models/Registrar.model")
+const Event = require ("../models/Evento.model")
 
 
 module.exports.login = (req, res, next) => {
@@ -42,4 +44,14 @@ module.exports.doLogin = (req, res, next) => {
 module.exports.logout = (req, res, next) => {
     req.session.destroy();
     res.redirect("/login")
+}
+
+module.exports.getCurrentUserProfile = (req, res, next) => {
+    console.log(req.currentUser._id)
+Registrar.find({user: req.currentUser._id})
+.populate("evento")// es el nombre del campo evento en el modelo registrar, no el ref
+.then(registros => {
+    res.render("profile", {eventos: registros.map(registro => registro.evento) });
+})
+.catch(err => next(err))
 }
