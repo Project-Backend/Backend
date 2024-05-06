@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <h1>Registrate</h1>
 
-  <form action="/register" method="POST">
+  <form action="/register" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="email" class="form-label">Correo electrónico</label>
       <input value="{{values.email}}" name="email" type="email" class="form-control {{#if errors.email}}is-invalid{{/if}}" id="email" placeholder="name@example.com">
@@ -32,7 +32,18 @@
       {{/if}}
     </div>
 
-    <input type="file" name="avatar" id="">
+<div class="mb-3">
+      <label for="imgUrl" class="form-label">Avatar</label>
+      <input type="file" name="imgUrl" id="imgUrl" class="form-control">
+      <!-- Añade esta sección para mostrar mensajes de error si es necesario -->
+      {{#if errors.imgUrl}}
+        <div class="invalid-feedback">
+          {{errors.imgUrl}}
+        </div>
+      {{/if}}
+    </div>
+
+    
 
     <button class="btn btn-primary">Enviar</button>
   </form>

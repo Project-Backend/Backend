@@ -1,0 +1,24 @@
+<div class="container mt-3">
+  <div class="d-flex flex-column text-center align-items-center gap-2">
+    <img class="rounded-circle border" src="{{currentUser.avatar}}" width="100" />
+    <div>
+      <h4>{{currentUser.username}}</h4>
+      <p>{{currentUser.email}}</p>
+    </div>
+  </div>
+
+  <h2 class="mt-4">Mis eventos</h2>
+  {{#if eventos}}
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {{#each eventos as |evento|}}
+      <div class="col">
+        {{> eventocard evento=evento}}
+      </div>
+    {{/each}}
+  </div>
+
+  {{else}}
+    <p>No tienes eventos aun. Visita <a href="//eventos/list-eventos">nuestro listado</a> para ver si alguno te gusta.</p>
+  {{/if}}
+</div>

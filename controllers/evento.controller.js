@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const Evento = require("../models/Evento.model");
 const { Router } = require("express");
 const createHttpError = require("http-errors");
-const Registrar = require("../models/Registrar.model")
+const Registrar = require("../models/Registrar.model");
+
 
 
 
@@ -17,7 +18,7 @@ req.body.nivel = {
     desde: req.body.desde,
     hasta: req.body.hasta,
 }
-req.body.usuario = req.currentUser._id
+req.body.usuario = req.currentUser._id //necesitas hacer esto cuando creas un usuario en el modelo evento. En este caso se llama usuario
 Evento.create(req.body)
 .then(() => {
     res.redirect("/eventos/list-eventos");
@@ -61,10 +62,15 @@ module.exports.getEvents = (req, res, next) => {
 
 module.exports.getEventsId = (req, res, next) => {
     Evento.findById(req.params.id)
-    .populate({path: "registros", populate: {path: "user", select: "username"}})
+    .populate({path: "registros", populate: {path: "user", select: "username imgUrl"}})
     .then(event => {
         if(!event) {
             next(createHttpError(404, 'Evento no encontrado'))
+        }
+        console.log("Número de jugadores permitidos:", event.registros.length);
+        if (event.registros.length >= event.numeroDeJugadores){
+            res.render("eventos/detail", {event, registroCerrado: true})
+            return
         }
         if(req.currentUser){
             Registrar.findOne({user: req.currentUser._id, evento: req.params.id})

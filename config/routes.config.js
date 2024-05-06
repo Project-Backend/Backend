@@ -1,22 +1,27 @@
 const router = require('express').Router()
+const multer = require("./storage.config")
 
 const userController = require('../controllers/user.controller')
 const eventoController = require("../controllers/evento.controller")
 const authController = require("../controllers/auth.controller")
 const registrarController = require("../controllers/registrar.controller")
+
 //const authMiddleware = require('../middlewares/authMiddleware')
 
 router.get('/', (req, res, next) => res.render('home'))
 
 router.get("/register", userController.register)
-router.post("/register", userController.doRegister)
+router.post("/register", multer.single("imgUrl"), userController.doRegister)
+
 router.get("/login", authController.login)
 router.post("/login", authController.doLogin)
-router.get("/logout", authController.logout)
 
+router.get("/logout", authController.logout)
 
 router.get("/crearEvento", eventoController.evento);
 router.post("/crearEvento", eventoController.doEvento)
+
+router.get("/profile", authController.getCurrentUserProfile)
 
 
 //eventos
