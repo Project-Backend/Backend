@@ -11,7 +11,7 @@ const registrarSchema = mongoose.Schema(
     },
     evento: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Evento",
+        ref: "Event",
         required: true,
     }
 }

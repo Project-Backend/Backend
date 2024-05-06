@@ -2,6 +2,8 @@ const Registrar = require('../models/Registrar.model')
 
 module.exports.doRegister = (req, res, next) => {
 console.log({ user: req.currentUser._id, evento: req.params.id })
+  // find byid del evento y me aseguro del numero posible registrados
+
   Registrar.findOne({ user: req.currentUser._id, evento: req.params.id })
   
     .then((registro) => {

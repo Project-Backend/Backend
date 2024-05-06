@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt')
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const Registrar = require("./Registrar.model")
 
+
 const SALT_ROUNDS = 10
 
 const userSchema = mongoose.Schema(
