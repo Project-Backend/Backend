@@ -62,20 +62,20 @@ module.exports.getEvents = (req, res, next) => {
 module.exports.getEventsId = (req, res, next) => {
     Evento.findById(req.params.id)
     .populate({path: "registros", populate: {path: "user", select: "username"}})
-    .then(eventos => {
-        if(!eventos) {
+    .then(event => {
+        if(!event) {
             next(createHttpError(404, 'Evento no encontrado'))
         }
         if(req.currentUser){
             Registrar.findOne({user: req.currentUser._id, evento: req.params.id})
             .then(registro => {
                 if(registro){
-                    res.render("eventos/detail", {eventos, registrado: Boolean(registro) })
+                    res.render("eventos/detail", {event, registrado: Boolean(registro) })
                 } else {
-                    res.render("eventos/detail", {eventos})
+                    res.render("eventos/detail", {event})
                 }
             })
-        } else {res.render('eventos/detail', { eventos })
+        } else {res.render('eventos/detail', { event })
     }
         
     })
