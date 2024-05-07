@@ -79,7 +79,14 @@ eventoSchema.virtual("registros", {
     foreignField: "evento",
     localField: "_id",
     justOne: false,
-})
+});
+
+eventoSchema.virtual("comments", {
+   ref: "Comment",
+   foreignField: "evento",
+   localField: "_id",
+   justOne: false,
+});
 
 
 const Event = mongoose.model("Event", eventoSchema);
