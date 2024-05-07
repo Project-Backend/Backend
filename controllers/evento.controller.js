@@ -90,3 +90,31 @@ module.exports.getEventsId = (req, res, next) => {
 
 
 
+// edit the event
+module.exports.editEvent = (req, res, next) => {
+    Evento
+    .findById(req.params.id)
+        .then(evento => {
+            if (!evento) {
+                next(createHttpError(404, 'Evento no encontrado'));
+            } else {
+                res.render('eventos/edit', { evento });
+            }
+        })
+        .catch(err => next(err));
+};
+
+// post the edited event
+
+module.exports.doEditEvent = (req, res, next) => {
+    Evento
+    .findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then(event => {
+            if (!event) {
+                next(createHttpError(404, 'Evento no encontrado'));
+            } else {
+                res.redirect(`/profile`);
+            }
+        })
+        .catch(err => next(err));
+}
