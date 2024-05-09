@@ -18,11 +18,17 @@
       <h5>Comentarios:</h5>
       <ul>
         {{#each comments}}
-        <li>
-        <strong>{{ this.comment }}</strong> - Comentado por: {{ this.sender.username }}
-        <img class="rounded-circle border" src="{{this.sender.imgUrl}}" alt="profile picture" width="40">
-        </li>
-        {{/each}}
+  <li>
+    <strong>{{ this.comment }}</strong> - Comentado por: {{ this.sender.username }}
+    <img class="rounded-circle border" src="{{this.sender.imgUrl}}" alt="profile picture" width="40">
+    <br>
+    {{#if this.createdAt}}
+      <small>Creado el: {{formatDate this.createdAt }}</small>
+    {{else}}
+      <small>Fecha de creación no disponible</small>
+    {{/if}}
+  </li>
+{{/each}}
       </ul>
     </div>
   </div>
