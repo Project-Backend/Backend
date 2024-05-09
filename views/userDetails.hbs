@@ -1,0 +1,29 @@
+<div class="container mt-3">
+  <div class="d-flex flex-column text-center align-items-center gap-2">
+    <img class="rounded-circle border" src="{{ user.avatar }}" width="100" />
+    <div>
+      <h4>{{ user.username }}</h4>
+      <!-- Formulario para enviar comentarios -->
+      <form action="/usuario/{{ user._id }}/comentarios" method="POST">
+        <div class="mb-3">
+          <label for="commentText" class="form-label">Comentario:</label>
+          <textarea class="form-control" id="commentText" name="commentText" rows="3" placeholder="Escribe tu comentario aquí"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar Comentario</button>
+      </form>
+    </div>
+
+    <!-- Sección para mostrar los comentarios -->
+    <div class="comments-section">
+      <h5>Comentarios:</h5>
+      <ul>
+        {{#each comments}}
+        <li>
+        <strong>{{ this.comment }}</strong> - Comentado por: {{ this.sender.username }}
+        <img class="rounded-circle border" src="{{this.sender.imgUrl}}" alt="profile picture" width="40">
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

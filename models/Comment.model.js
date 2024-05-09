@@ -3,7 +3,7 @@ const commentSchema = new mongoose.Schema(
     {
         user: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
+            ref: "User", //requerido
         },
 
         evento: {
@@ -14,11 +14,16 @@ const commentSchema = new mongoose.Schema(
         comment: {
             type: String,
             required: true
+        },
+
+        sender: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
         }
 
 
     }
 )
-const Comment = mongoose.comment("Comment", commentSchema);
+const Comment = mongoose.model("Comment", commentSchema);
 
 module.exports = Comment;

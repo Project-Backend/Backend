@@ -3,22 +3,27 @@ const Evento = require("../models/Evento.model");
 const { Router } = require("express");
 const createHttpError = require("http-errors");
 const Registrar = require("../models/Registrar.model");
+const multer = require("../config/storage.config")
 
 
-
-
+// ver vista evento
 module.exports.evento = (req, res, next) => {
     res.render("evento");
 }
+//crear evento
 module.exports.doEvento = (req, res, next) => {
+    console.log(req.body, "se manda vacio");
 const renderWithErros = (errors, values) => {
     res.render("evento", {errors, values} )
+}
+if(req.file){
+    req.body.imgUrl = req.file.path //se pasa imgUrl(del modelo evento) al body, para que luego el create de req.body tenga acceso al archivo
 }
 req.body.nivel = {
     desde: req.body.desde,
     hasta: req.body.hasta,
 }
-req.body.usuario = req.currentUser._id //necesitas hacer esto cuando creas un usuario en el modelo evento. En este caso se llama usuario
+req.body.usuario = req.currentUser._id //necesitas hacer esto cuando creas un usuario en el modelo evento,para darle un propietario. En este caso se llama usuario
 Evento.create(req.body)
 .then(() => {
     res.redirect("/eventos/list-eventos");
@@ -31,7 +36,7 @@ Evento.create(req.body)
     }
 })
 }
-
+// ver eventos creados
 module.exports.getEvents = (req, res, next) => {
     /*const { provincia, ciudad, precio, nivel } = req.query;
 
@@ -59,14 +64,16 @@ module.exports.getEvents = (req, res, next) => {
         })
         .catch(err => next(err));
 };
-
+//ver detalles eventos
 module.exports.getEventsId = (req, res, next) => {
     Evento.findById(req.params.id)
     .populate({path: "registros", populate: {path: "user", select: "username imgUrl"}})
+    .populate("usuario")
     .then(event => {
         if(!event) {
             next(createHttpError(404, 'Evento no encontrado'))
         }
+        console.log("Evento encontrado:", event);
         console.log("Número de jugadores permitidos:", event.registros.length);
         if (event.registros.length >= event.numeroDeJugadores){
             res.render("eventos/detail", {event, registroCerrado: true})
@@ -118,3 +125,4 @@ module.exports.doEditEvent = (req, res, next) => {
         })
         .catch(err => next(err));
 }
+

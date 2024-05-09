@@ -64,6 +64,9 @@ const eventoSchema = new mongoose.Schema(
         normas: {
             type: String,
         },
+        imgUrl: {
+            type: String
+        },
 
         usuario: {
             type: mongoose.Schema.Types.ObjectId,
