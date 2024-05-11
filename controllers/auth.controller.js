@@ -46,13 +46,28 @@ module.exports.logout = (req, res, next) => {
     res.redirect("/login")
 }
 
+// module.exports.getCurrentUserProfile = (req, res, next) => {
+//     console.log(req.currentUser._id)
+// Registrar.find({user: req.currentUser._id})
+// .populate("evento")// es el nombre del campo evento en el modelo registrar, no el ref
+// .then(registros => {
+//     res.render("profile", {eventos: registros.map(registro => registro.evento) });
+// })
+// .catch(err => next(err))
+// }
+
 module.exports.getCurrentUserProfile = (req, res, next) => {
-    console.log(req.currentUser._id)
-Registrar.find({user: req.currentUser._id})
-.populate("evento")// es el nombre del campo evento en el modelo registrar, no el ref
-.then(registros => {
-    res.render("profile", {eventos: registros.map(registro => registro.evento) });
-})
-.catch(err => next(err))
+    Registrar
+    .find({ user: req.currentUser._id })
+    .populate("evento")
+    .then(registros => {
+        const eventos = registros
+        .filter(registro => registro.evento !== null)
+        .map(registro => registro.evento)
+    
+        res.render("profile", { eventos })
+    })
+    .catch(err => next(err))
+
 }
 
