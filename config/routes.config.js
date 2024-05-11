@@ -12,16 +12,12 @@ router.get('/', (req, res, next) => res.render('home'))
 
 router.get("/register", userController.register)
 router.post("/register", multer.single("imgUrl"), userController.doRegister)
-
 router.get("/login", authController.login)
 router.post("/login", authController.doLogin)
 router.get("/logout", authController.logout)
-
 router.get("/crearEvento", eventoController.evento);
 router.post("/crearEvento", multer.single("imgUrl"),eventoController.doEvento)
-
 router.get("/profile", authController.getCurrentUserProfile)
-
 router.get("/usuario/:userId", userController.getUserDetails)
 router.post("/usuario/:userId/comentarios", userController.createComment)
 
