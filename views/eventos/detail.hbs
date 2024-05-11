@@ -19,8 +19,8 @@
         </div>
         <div class="col">
             <h1>{{event.nombreDelDeporte}}</h1>
-            <p><strong>Fecha y Hora:</strong> {{event.fechaYHoraDelPartido}}</p>
-            <p><strong>Tiempo de Inscripción:</strong> {{event.tiempoDeInscripcion}}</p>
+            <p><strong>Fecha y Hora:</strong> {{formatDate event.fechaYHoraDelPartido}}</p>
+            <p><strong>Tiempo de Inscripción:</strong> {{formatDate event.tiempoDeInscripcion}}</p>
             <p><strong>Duración del Partido:</strong> {{event.duracionDelPartido}}</p>
             <p><strong>Nivel del Partido (desde):</strong> {{event.nivel.desde}}</p>
             <p><strong>Nivel del Partido (hasta):</strong> {{event.nivel.hasta}}</p>
