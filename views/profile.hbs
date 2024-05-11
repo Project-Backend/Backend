@@ -7,11 +7,27 @@
     </div>
   </div>
 
-  <h2 class="mt-4">Mis eventos</h2>
+  <h2 class="mt-4">Eventos Registrados</h2>
   {{#if eventos}}
 
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     {{#each eventos as |evento|}}
+      <div class="col">
+        {{> eventocard evento=evento}}
+        
+      </div>
+    {{/each}}
+  </div>
+
+  {{else}}
+    <p>No tienes eventos aun. Visita <a href="/eventos/list-eventos">nuestro listado</a> para ver si alguno te gusta.</p>
+  {{/if}}
+
+  <h2 class="mt-4">Mis eventos</h2>
+  {{#if eventos}}
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {{#each currentUser.events as |evento|}}
       <div class="col">
         {{> eventocard evento=evento}}
         <a href="/eventos/{{evento._id}}/edit" class="btn btn-primary mt-4">Editar Evento</a>
