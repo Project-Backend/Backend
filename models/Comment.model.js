@@ -3,7 +3,8 @@ const commentSchema = new mongoose.Schema(
     {
         user: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "User", //requerido
+            ref: "User",
+            required: true //requerido
         },
 
         evento: {
@@ -13,7 +14,14 @@ const commentSchema = new mongoose.Schema(
 
         comment: {
             type: String,
-            required: true
+            required: true,
+            minLenght: 10
+        },
+
+        title: {
+            type: String,
+            required: true,
+            minLenght: 10
         },
 
         sender: {

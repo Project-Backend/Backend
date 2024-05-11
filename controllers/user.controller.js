@@ -49,8 +49,11 @@ module.exports.doRegister = (req, res, next) => {
 
 module.exports.createComment = (req, res, next) => {
   const userId = req.params.userId;
-  const { commentText } = req.body; // Suponiendo que solo recibes el texto del comentario desde el cuerpo de la solicitud
+  const { commentText, commentTitle } = req.body; // Suponiendo que solo recibes el texto del comentario desde el cuerpo de la solicitud
 
+  if (req.currentUser._id.toString() === userId) {
+    return res.status(400).send('No puedes comentar en tu propio perfil');
+  }
   // Primero, verifica si el usuario al que se está comentando existe
   User.findById(userId)
       .then(user => {
@@ -62,6 +65,7 @@ module.exports.createComment = (req, res, next) => {
           Comment.create({
               user: userId,
               comment: commentText,
+              title: commentTitle,
               sender: req.currentUser._id
           })
           .then(comment => {

@@ -1,35 +1,39 @@
 <div class="container mt-3">
-  <div class="d-flex flex-column text-center align-items-center gap-2">
-    <img class="rounded-circle border" src="{{ user.avatar }}" width="100" />
-    <div>
+  <div class="d-flex flex-column flex-md-row text-center align-items-md-start align-items-center gap-2">
+    <!-- Sección del usuario -->
+    <div class="text-center">
       <h4>{{ user.username }}</h4>
-      <!-- Formulario para enviar comentarios -->
-      <form action="/usuario/{{ user._id }}/comentarios" method="POST">
-        <div class="mb-3">
-          <label for="commentText" class="form-label">Comentario:</label>
-          <textarea class="form-control" id="commentText" name="commentText" rows="3" placeholder="Escribe tu comentario aquí"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar Comentario</button>
-      </form>
+      <img class="rounded border" src="{{ user.imgUrl }}" width="200" height="200" />
     </div>
 
-    <!-- Sección para mostrar los comentarios -->
-    <div class="comments-section">
-      <h5>Comentarios:</h5>
-      <ul>
-        {{#each comments}}
-  <li>
-    <strong>{{ this.comment }}</strong> - Comentado por: {{ this.sender.username }}
-    <img class="rounded-circle border" src="{{this.sender.imgUrl}}" alt="profile picture" width="40">
-    <br>
-    {{#if this.createdAt}}
-      <small>Creado el: {{formatDate this.createdAt }}</small>
-    {{else}}
-      <small>Fecha de creación no disponible</small>
-    {{/if}}
-  </li>
-{{/each}}
-      </ul>
+    <!-- Formulario para enviar comentarios -->
+    <div class="w-75 mx-auto">
+      <form action="/usuario/{{ user._id }}/comentarios" method="POST">
+        <div class="border p-3">
+          <div class="mb-3">
+            <input type="text" class="form-control" id="commentTitle" name="commentTitle" placeholder="Título del comentario" minlength="3" required>
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control" id="commentText" name="commentText" rows="3" placeholder="Escribe tu comentario aquí" minlength="10" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar Comentario</button>
+        </div>
+      </form>
     </div>
+  </div>
+
+  <!-- Sección para mostrar los comentarios -->
+  <div class="comments-section mt-3">
+    <h5 style="color: #343a40;">Comentarios:</h5>
+    {{#each comments}}
+      <div class="mb-3">
+        <strong>{{ this.title }}</strong>
+        <br>
+        <span style="font-size: smaller;">{{ this.sender.username }} - {{#if this.createdAt}}{{formatDate this.createdAt}}{{else}}Fecha de creación no disponible{{/if}}</span>
+        <br>
+        <span>{{ this.comment }}</span>
+      </div>
+      <hr> <!-- Línea horizontal -->
+    {{/each}}
   </div>
 </div>
