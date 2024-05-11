@@ -14,15 +14,15 @@
     {{#each eventos as |evento|}}
       <div class="col">
         {{> eventocard evento=evento}}
+        {{#if evento.registros}}
           <a href="/eventos/{{evento._id}}/edit" class="btn btn-primary mt-4">Editar Evento</a>
+          <a href="/eventos/{{evento._id}}/delete" class="btn btn-danger mt-4">Eliminar Evento</a>
       </div>
+    {{/if}}
     {{/each}}
   </div>
   {{else}}
     <p>No tienes eventos aun. Visita <a href="/eventos/list-eventos">nuestro listado</a> para ver si alguno te gusta.</p>
   {{/if}}
 
-  
-  
-  
 </div>
