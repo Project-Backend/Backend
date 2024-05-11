@@ -55,3 +55,4 @@ Registrar.find({user: req.currentUser._id})
 })
 .catch(err => next(err))
 }
+
