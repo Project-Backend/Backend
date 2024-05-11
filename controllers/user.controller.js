@@ -40,7 +40,7 @@ module.exports.doRegister = (req, res, next) => {
             .populate('sender', ['username', 'imgUrl']) //se le pasa user, porque asi se llama en mi modelo comment, y se le pasa las propiedadades que quiera del modelo user
                 .then(comments => {
                     // Renderizar la vista de detalles del usuario junto con los comentarios
-                    res.render('userDetails', { user, comments });
+                    res.render('userDetails', { user, comments, canComment: user._id.toString() !== req.currentUser._id.toString() });
                 })
                 .catch(err => next(err));
         })

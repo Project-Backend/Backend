@@ -6,6 +6,7 @@
       <img class="rounded border" src="{{ user.imgUrl }}" width="200" height="200" />
     </div>
 
+    {{#if canComment}}
     <!-- Formulario para enviar comentarios -->
     <div class="w-75 mx-auto">
       <form action="/usuario/{{ user._id }}/comentarios" method="POST">
@@ -21,9 +22,10 @@
       </form>
     </div>
   </div>
+  {{/if}}
 
   <!-- Sección para mostrar los comentarios -->
-  <div class="comments-section mt-3">
+  <div class="comments-section mt-3 w-100">
     <h5 style="color: #343a40;">Comentarios:</h5>
     {{#each comments}}
       <div class="mb-3">
