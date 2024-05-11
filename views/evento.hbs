@@ -1,170 +1,196 @@
 <div class="container">
-  <form action="/crearEvento" method="POST">
+  <form action="/crearEvento" method="POST" enctype="multipart/form-data">
+
     <div class="row mb-3">
-      <label for="nombreDelDeporte" class="col-sm-2 col-form-label">Nombre del
-        Deporte</label>
+      <label for="nombreDelDeporte" class="col-sm-2 col-form-label">Nombre del Deporte</label>
       <div class="col-sm-10">
-        <input
-          type="text"
-          class="form-control"
-          id="nombreDelDeporte"
-          name="nombreDelDeporte"
-          placeholder="Nombre del Deporte"
-        />
+        <input type="text" class="form-control {{#if errors.nombreDelDeporte}}is-invalid{{/if}}" id="nombreDelDeporte" name="nombreDelDeporte" placeholder="Nombre del Deporte" value="{{values.nombreDelDeporte}}">
+        {{#if errors.nombreDelDeporte}}
+          <div class="invalid-feedback">
+            {{errors.nombreDelDeporte}}
+          </div>
+        {{/if}}
       </div>
     </div>
+
+    <div class="mb-3">
+      <label for="imgUrl" class="form-label">Imagen del deporte</label>
+      <input type="file" name="imgUrl" id="imgUrl" class="form-control">
+      {{#if errors.imgUrl}}
+        <div class="invalid-feedback">
+          {{errors.imgUrl}}
+        </div>
+      {{/if}}
+    </div>
+
     <div class="row mb-3">
       <label for="provincia" class="col-sm-2 col-form-label">Provincia</label>
       <div class="col-sm-10">
-        <input
-          type="text"
-          class="form-control"
-          id="provincia"
-          name="provincia"
-          placeholder="Provincia"
-        />
+        <input type="text" class="form-control {{#if errors.provincia}}is-invalid{{/if}}" id="provincia" name="provincia" placeholder="Provincia" value="{{values.provincia}}">
+        {{#if errors.provincia}}
+          <div class="invalid-feedback">
+            {{errors.provincia}}
+          </div>
+        {{/if}}
       </div>
     </div>
+
     <div class="row mb-3">
       <label for="ciudad" class="col-sm-2 col-form-label">Ciudad</label>
       <div class="col-sm-10">
-        <input
-          type="text"
-          class="form-control"
-          id="ciudad"
-          name="ciudad"
-          placeholder="Ciudad"
-        />
+        <input type="text" class="form-control {{#if errors.ciudad}}is-invalid{{/if}}" id="ciudad" name="ciudad" placeholder="Ciudad" value="{{values.ciudad}}">
+        {{#if errors.ciudad}}
+          <div class="invalid-feedback">
+            {{errors.ciudad}}
+          </div>
+        {{/if}}
       </div>
     </div>
-    <div class="row mb-3">
-      <label for="fechaYHoraDelPartido" class="col-sm-2 col-form-label">Fecha y
-        Hora del Partido</label>
+
+   <div class="row mb-3">
+      <label for="fechaYHoraDelPartido" class="col-sm-2 col-form-label">Fecha y Hora del Partido</label>
       <div class="col-sm-10">
-        <input
-          type="datetime-local"
-          class="form-control"
-          id="fechaYHoraDelPartido"
-          name="fechaYHoraDelPartido"
-        />
+        <input type="datetime-local" class="form-control {{#if errors.fechaYHoraDelPartido}}is-invalid{{/if}}" id="fechaYHoraDelPartido" name="fechaYHoraDelPartido" value="{{values.fechaYHoraDelPartido}}">
+        {{#if errors.fechaYHoraDelPartido}}
+          <div class="invalid-feedback">
+            {{errors.fechaYHoraDelPartido}}
+          </div>
+        {{/if}}
       </div>
     </div>
+
     <div class="row mb-3">
-      <label for="lugarDelPartido" class="col-sm-2 col-form-label">Lugar del
-        partido</label>
-      <div class="col-sm-10">
-        <input
-          type="text"
-          class="form-control"
-          id="lugarDelPartido"
-          name="lugarDelPartido"
-          placeholder="Lugar del partido"
-        />
+  <label for="lugarDelPartido" class="col-sm-2 col-form-label">Lugar del partido</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control {{#if errors.lugarDelPartido}}is-invalid{{/if}}" id="lugarDelPartido" name="lugarDelPartido" placeholder="Lugar del partido" value="{{values.lugarDelPartido}}">
+    {{#if errors.lugarDelPartido}}
+      <div class="invalid-feedback">
+        {{errors.lugarDelPartido}}
       </div>
-    </div>
+    {{/if}}
+  </div>
+</div>
+
     <div class="row mb-3">
-      <label for="tiempoDeInscripcion" class="col-sm-2 col-form-label">Tiempo de
-        Inscripción</label>
-      <div class="col-sm-10">
-        <input
-          type="datetime-local"
-          class="form-control"
-          id="tiempoDeInscripcion"
-          name="tiempoDeInscripcion"
-        />
+  <label for="tiempoDeInscripcion" class="col-sm-2 col-form-label">Tiempo de Inscripción</label>
+  <div class="col-sm-10">
+    <input type="datetime-local" class="form-control {{#if errors.tiempoDeInscripcion}}is-invalid{{/if}}" id="tiempoDeInscripcion" name="tiempoDeInscripcion" value="{{values.tiempoDeInscripcion}}">
+    {{#if errors.tiempoDeInscripcion}}
+      <div class="invalid-feedback">
+        {{errors.tiempoDeInscripcion}}
       </div>
-    </div>
+    {{/if}}
+  </div>
+</div>
+
     <div class="row mb-3">
-      <label for="duracionDelPartido" class="col-sm-2 col-form-label">Duración
-        del Partido</label>
-      <div class="col-sm-10">
-        <input
-          type="text"
-          class="form-control"
-          id="duracionDelPartido"
-          name="duracionDelPartido"
-          pattern="[0-2][0-9]:[0-5][0-9]"
-          maxlength="5"
-          placeholder="hh:mm"
-        />
+  <label for="duracionDelPartido" class="col-sm-2 col-form-label">Duración del Partido</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control {{#if errors.duracionDelPartido}}is-invalid{{/if}}" id="duracionDelPartido" name="duracionDelPartido" pattern="[0-2][0-9]:[0-5][0-9]" maxlength="5" placeholder="hh:mm" value="{{values.duracionDelPartido}}">
+    {{#if errors.duracionDelPartido}}
+      <div class="invalid-feedback">
+        {{errors.duracionDelPartido}}
       </div>
-    </div>
+    {{/if}}
+  </div>
+</div>
+
     <div class="row mb-3">
-      <label for="numeroDeJugadores" class="col-sm-2 col-form-label">Número de
-        Jugadores</label>
-      <div class="col-sm-10">
-        <input
-          type="number"
-          class="form-control"
-          id="numeroDeJugadores"
-          name="numeroDeJugadores"
-          min="1"
-        />
+  <label for="numeroDeJugadores" class="col-sm-2 col-form-label">Número de Jugadores</label>
+  <div class="col-sm-10">
+    <input type="number" class="form-control {{#if errors.numeroDeJugadores}}is-invalid{{/if}}" id="numeroDeJugadores" name="numeroDeJugadores" min="1" value="{{values.numeroDeJugadores}}">
+    {{#if errors.numeroDeJugadores}}
+      <div class="invalid-feedback">
+        {{errors.numeroDeJugadores}}
       </div>
+    {{/if}}
+  </div>
+</div>
+
+  <div class="row mb-3">
+  <label for="precioPorPersona" class="col-sm-2 col-form-label">Precio por Persona</label>
+  <div class="col-sm-10">
+    <div class="input-group">
+      <input type="number" class="form-control {{#if errors.precioPorPersona}}is-invalid{{/if}}" id="precioPorPersona" name="precioPorPersona" min="0.01" step="0.01" value="{{values.precioPorPersona}}">
+      <span class="input-group-text">$</span>
     </div>
-    <div class="row mb-3">
-      <label for="precioPorPersona" class="col-sm-2 col-form-label">Precio por
-        Persona</label>
-      <div class="col-sm-10">
-        <div class="input-group">
-          <input
-            type="number"
-            class="form-control"
-            id="precioPorPersona"
-            name="precioPorPersona"
-            min="0.01"
-            step="0.01"
-          />
-          <span class="input-group-text">$</span>
-        </div>
+    {{#if errors.precioPorPersona}}
+      <div class="invalid-feedback">
+        {{errors.precioPorPersona}}
       </div>
-    </div>
-    <div class="row mb-3">
-      <label for="sexo" class="col-sm-2 col-form-label">Sexo</label>
-      <div class="col-sm-10">
-        <select class="form-select" id="sexo" name="sexo" aria-label="Sexo">
-          <option value="Mixto" selected>Mixto</option>
-          <option value="Masculino">Masculino</option>
-          <option value="Femenino">Femenino</option>
+    {{/if}}
+  </div>
+</div>
+
+  <div class="row mb-3">
+  <label for="sexo" class="col-sm-2 col-form-label">Sexo</label>
+  <div class="col-sm-10">
+    <select class="form-select {{#if errors.sexo}}is-invalid{{/if}}" id="sexo" name="sexo" aria-label="Sexo">
+      <option value="Mixto" selected>Mixto</option>
+      <option value="Masculino">Masculino</option>
+      <option value="Femenino">Femenino</option>
+    </select>
+    {{#if errors.sexo}}
+      <div class="invalid-feedback">
+        {{errors.sexo}}
+      </div>
+    {{/if}}
+  </div>
+</div>
+
+  <div class="row mb-3">
+  <label for="nivel" class="col-sm-2 col-form-label">Nivel</label>
+  <div class="col-sm-10">
+    <div class="row">
+      <div class="col">
+        <label for="desde" class="form-label">Desde</label>
+        <select class="form-select {{#if errors.desde}}is-invalid{{/if}}" id="desde" name="desde">
+          <option value="" disabled selected hidden>Desde</option>
+          <option value="Iniciación">Iniciación</option>
+          <option value="Principiante">Principiante</option>
+          <option value="Medio">Medio</option>
+          <option value="Avanzado">Avanzado</option>
         </select>
+        {{#if errors.desde}}
+          <div class="invalid-feedback">
+            {{errors.desde}}
+          </div>
+        {{/if}}
+      </div>
+      <div class="col">
+        <label for="hasta" class="form-label">Hasta</label>
+        <select class="form-select {{#if errors.hasta}}is-invalid{{/if}}" id="hasta" name="hasta">
+          <option value="" disabled selected hidden>Hasta</option>
+          <option value="Iniciación">Iniciación</option>
+          <option value="Principiante">Principiante</option>
+          <option value="Medio">Medio</option>
+          <option value="Avanzado">Avanzado</option>
+        </select>
+        {{#if errors.hasta}}
+          <div class="invalid-feedback">
+            {{errors.hasta}}
+          </div>
+        {{/if}}
       </div>
     </div>
-    <div class="row mb-3">
-      <label for="sexo" class="col-sm-2 col-form-label">Nivel</label>
-      <div class="col-sm-10">
-        <div class="row">
-          <div class="col">
-            <label for="desde" class="form-label"></label>
-            <select class="form-select" id="desde" name="desde">
-              <option value="" disabled selected hidden>Desde</option>
-              <option value="Iniciación">Iniciación</option>
-              <option value="Principiante">Principiante</option>
-              <option value="Medio">Medio</option>
-              <option value="Avanzado">Avanzado</option>
-            </select>
-          </div>
-          <div class="col">
-            <label for="hasta" class="form-label"></label>
-            <select class="form-select" id="hasta" name="hasta">
-              <option value="" disabled selected hidden>Hasta</option>
-              <option value="Iniciación">Iniciación</option>
-              <option value="Principiante">Principiante</option>
-              <option value="Medio">Medio</option>
-              <option value="Avanzado">Avanzado</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row mb-3">
-      <label for="normas" class="form-label">Normas</label>
-      <textarea
-        class="form-control"
-        id="normas"
-        rows="3"
-        name="normas"
-      ></textarea>
-    </div>
-    <button class="btn btn-primary">Enviar</button>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <label for="normas" class="col-sm-2 col-form-label">Normas</label>
+  <div class="col-sm-10">
+    <textarea class="form-control {{#if errors.normas}}is-invalid{{/if}}" id="normas" rows="3" name="normas">{{values.normas}}</textarea>
+    {{#if errors.normas}}
+      <div class="invalid-feedback">
+        {{errors.normas}}
+      </div> 
+    {{/if}}
+  </div>
+</div>
+
+<div class="row mb-3">
+  <button class="btn btn-primary">Enviar</button>
+</div>
+
   </form>
 </div>
