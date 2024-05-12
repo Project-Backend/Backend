@@ -1,12 +1,9 @@
-<div class="card h-100">
-  <img src={{evento.imgUrl}} class="card-img-top" alt="...">
+<div class="card" style="width: 80%;">
+
   <div class="card-body">
     <h5 class="card-title">{{evento.nombreDelDeporte}}</h5>
-     <p><strong>Fecha y Hora:</strong> {{evento.lugarDelPartido}}</p>
-     <p><strong>Fecha y Hora:</strong> {{evento.fechaYHoraDelPartido}}</p>
-   
+    <p><strong></strong> {{evento.lugarDelPartido}}</p>
+    <p><strong></strong> {{formatDate evento.fechaYHoraDelPartido}}</p>
     <a class="btn btn-outline-primary" href="/eventos/{{evento._id}}/detail">Ver más detalles</a>
-    
-    
   </div>
 </div>

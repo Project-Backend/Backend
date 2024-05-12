@@ -143,7 +143,10 @@ module.exports.doEditEvent = (req, res, next) => {
 
 // delete the event
 module.exports.deleteEvent = (req, res, next) => {
-    Evento
+    checkEventOwner(req.params.id, req.currentUser._id)
+    .then(isValid =>{
+        if (isValid){
+           Evento
     .findByIdAndDelete(req.params.id)
         .then(event => {
             if (!event) {
@@ -152,5 +155,10 @@ module.exports.deleteEvent = (req, res, next) => {
                 res.redirect(`/profile`);
             }
         })
-        .catch(err => next(err));
+        .catch(err => next(err));  
+        } else {
+            res.redirect("/")
+        }
+    })
+   
 }
