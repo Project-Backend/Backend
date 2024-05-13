@@ -1,27 +1,33 @@
-<div class="container">
-  <form action="/crearEvento" method="POST" enctype="multipart/form-data">
+<div style="background-color: #D2B48C; padding: 20px; height: 100vh;">
+<div class="container mt-3" style="background-color: #F5F5DC; padding: 20px;">
+    <form action="/crearEvento" method="POST" enctype="multipart/form-data">
 
-    <div class="row mb-3">
-      <label for="nombreDelDeporte" class="col-sm-2 col-form-label">Nombre del Deporte</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control {{#if errors.nombreDelDeporte}}is-invalid{{/if}}" id="nombreDelDeporte" name="nombreDelDeporte" placeholder="Nombre del Deporte" value="{{values.nombreDelDeporte}}">
-        {{#if errors.nombreDelDeporte}}
-          <div class="invalid-feedback">
-            {{errors.nombreDelDeporte}}
-          </div>
-        {{/if}}
-      </div>
-    </div>
+        <h2 style="color: #E58E00;">Crear Nuevo Evento</h2>
 
-    <div class="mb-3">
-      <label for="imgUrl" class="form-label">Imagen del deporte</label>
-      <input type="file" name="imgUrl" id="imgUrl" class="form-control">
-      {{#if errors.imgUrl}}
-        <div class="invalid-feedback">
-          {{errors.imgUrl}}
+        <div class="row mb-3">
+            <label for="nombreDelDeporte" class="col-sm-2 col-form-label">Nombre del Deporte</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control {{#if errors.nombreDelDeporte}}is-invalid{{/if}}" id="nombreDelDeporte" name="nombreDelDeporte" placeholder="Nombre del Deporte" value="{{values.nombreDelDeporte}}">
+                {{#if errors.nombreDelDeporte}}
+                <div class="invalid-feedback">
+                    {{errors.nombreDelDeporte}}
+                </div>
+                {{/if}}
+            </div>
         </div>
-      {{/if}}
+
+
+  <div class="row mb-3">
+    <label for="imgUrl" class="col-sm-2 col-form-label">Imagen del deporte</label>
+    <div class="col-sm-10">
+        <input type="file" name="imgUrl" id="imgUrl" class="form-control {{#if errors.imgUrl}}is-invalid{{/if}}">
+        {{#if errors.imgUrl}}
+        <div class="invalid-feedback">
+            {{errors.imgUrl}}
+        </div>
+        {{/if}}
     </div>
+</div>
 
     <div class="row mb-3">
       <label for="provincia" class="col-sm-2 col-form-label">Provincia</label>
@@ -189,8 +195,17 @@
 </div>
 
 <div class="row mb-3">
-  <button class="btn btn-primary">Enviar</button>
+  <button class="btn btn-primary" style="background-color: #4CAF50; /* Green */
+                        border: none;
+                        color: black;
+                        padding: 15px 32px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;
+                        margin: 4px 2px;
+                        cursor: pointer;">Enviar</button>
 </div>
-
   </form>
+</div>
 </div>

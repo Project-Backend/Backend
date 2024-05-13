@@ -8,7 +8,7 @@
     height: 50vh;
 }
 .mitadInferior {
-    height: auto;
+    height: 50vh;
 }
 
 body, html {
@@ -24,14 +24,9 @@ body, html {
 .fondo {
     height: 100vh;
     background-image: url(../img/fondoDeImagen.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    
     
 }
-.navbar {
-    background-color: #464646;
+#navbarNav{
+    color:#E58E00  ;
 }
-.nav-link {
-    color: #E58E00; /* Color amarillo */
-  }

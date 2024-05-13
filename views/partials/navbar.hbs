@@ -1,36 +1,38 @@
-<nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-secondary" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand d-flex align-items-center" href="/">
       <img src="../../img/logo.png" alt="Sports Friends Logo" style="width: 80px; height: auto; margin-right: 10px;">
-      <span class="d-none d-lg-block" style="font-size: 1.8rem; color:#E58E00">Sports Friends</span>
+      <span class="d-none d-lg-block" style="font-size: 1.8rem; color:#E58E00;">Sports Friends</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="navbar-nav">
-          <a class="nav-link" aria-current="page" href="/eventos/list-eventos">Eventos</a>
+      <ul class="navbar-nav ml-auto"> <!-- Utilizamos ml-auto para alinear a la derecha -->
+        <li class="nav-item"> <!-- Aquí deberías usar nav-item en lugar de navbar-nav -->
+          <a class="nav-link" aria-current="page" href="/eventos/list-eventos" style="color: #E58E00;">Eventos</a>
         </li>
         {{#if currentUser}}
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/profile">Mi perfil</a>
+          <a class="nav-link" aria-current="page" href="/profile" style="color:#E58E00;">Mi perfil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/logout">Cerrar sesión</a>
+          <a class="nav-link" aria-current="page" href="/logout" style="color: #E58E00;">Cerrar sesión</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/crearEvento">Crear evento deportivo</a>
+          <a class="nav-link" aria-current="page" href="/crearEvento" style="color:#E58E00;">Crear evento deportivo</a>
         </li>
         {{else}}
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/register">Regístrate</a>
+          <a class="nav-link" aria-current="page" href="/register" style="color: #E58E00;">Regístrate</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/login">Iniciar sesión</a>
+          <a class="nav-link" aria-current="page" href="/login" style="color: #E58E00;">Iniciar sesión</a>
         </li>
         {{/if}}
       </ul>
     </div>
   </div>
 </nav>
+
+
