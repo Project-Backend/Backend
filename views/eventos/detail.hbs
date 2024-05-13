@@ -11,6 +11,11 @@
                         <a href="/usuario/{{registro.user._id}}" class="text-decoration-none d-flex align-items-center">
                             <img class="rounded-circle border" src="{{registro.user.imgUrl}}" alt="profile picture" width="40" style="margin-right: 10px;">
                             <span>{{registro.user.username}}</span>
+                    <li>
+                        <a href="/usuario/{{registro.user._id}}" style="text-decoration: none;">
+                            <img class="rounded-circle border" src="{{registro.user.imgUrl}}" alt="profile picture"
+                                width="40">
+                            {{registro.user.username}}
                         </a>
                     </li>
                     {{/each}}
