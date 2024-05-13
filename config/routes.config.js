@@ -25,7 +25,7 @@ router.post("/usuario/:userId/comentarios", authMiddleware.isAuthenticated, user
 //eventos
 
 
-router.get("/eventos/list-eventos", authMiddleware.isNotAuthenticated, eventoController.getEvents)
+router.get("/eventos/list-eventos", eventoController.getEvents)
 router.get("/eventos/:id/detail", authMiddleware.isAuthenticated, eventoController.getEventsId)
 router.post("/eventos/:id/registrar", authMiddleware.isAuthenticated, registrarController.doRegister)
 router.get("/eventos/:id/edit", authMiddleware.isAuthenticated, eventoController.editEvent)

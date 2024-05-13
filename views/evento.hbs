@@ -5,8 +5,8 @@
         <h2 style="color: #E58E00;">Crear Nuevo Evento</h2>
 
         <div class="row mb-3">
-            <label for="nombreDelDeporte" class="col-sm-2 col-form-label">Nombre del Deporte</label>
-            <div class="col-sm-10">
+            <label for="nombreDelDeporte" class="col-sm-3 col-form-label">Nombre del Deporte</label>
+            <div class="col-sm-9">
                 <input type="text" class="form-control {{#if errors.nombreDelDeporte}}is-invalid{{/if}}" id="nombreDelDeporte" name="nombreDelDeporte" placeholder="Nombre del Deporte" value="{{values.nombreDelDeporte}}">
                 {{#if errors.nombreDelDeporte}}
                 <div class="invalid-feedback">
@@ -18,8 +18,8 @@
 
 
   <div class="row mb-3">
-    <label for="imgUrl" class="col-sm-2 col-form-label">Imagen del deporte</label>
-    <div class="col-sm-10">
+    <label for="imgUrl" class="col-sm-3 col-form-label">Imagen del deporte</label>
+    <div class="col-sm-9">
         <input type="file" name="imgUrl" id="imgUrl" class="form-control {{#if errors.imgUrl}}is-invalid{{/if}}">
         {{#if errors.imgUrl}}
         <div class="invalid-feedback">
@@ -30,8 +30,8 @@
 </div>
 
     <div class="row mb-3">
-      <label for="provincia" class="col-sm-2 col-form-label">Provincia</label>
-      <div class="col-sm-10">
+      <label for="provincia" class="col-sm-3 col-form-label">Provincia</label>
+      <div class="col-sm-9">
         <input type="text" class="form-control {{#if errors.provincia}}is-invalid{{/if}}" id="provincia" name="provincia" placeholder="Provincia" value="{{values.provincia}}">
         {{#if errors.provincia}}
           <div class="invalid-feedback">
@@ -42,8 +42,8 @@
     </div>
 
     <div class="row mb-3">
-      <label for="ciudad" class="col-sm-2 col-form-label">Ciudad</label>
-      <div class="col-sm-10">
+      <label for="ciudad" class="col-sm-3 col-form-label">Ciudad</label>
+      <div class="col-sm-9">
         <input type="text" class="form-control {{#if errors.ciudad}}is-invalid{{/if}}" id="ciudad" name="ciudad" placeholder="Ciudad" value="{{values.ciudad}}">
         {{#if errors.ciudad}}
           <div class="invalid-feedback">
@@ -54,8 +54,8 @@
     </div>
 
    <div class="row mb-3">
-      <label for="fechaYHoraDelPartido" class="col-sm-2 col-form-label">Fecha y Hora del Partido</label>
-      <div class="col-sm-10">
+      <label for="fechaYHoraDelPartido" class="col-sm-3 col-form-label">Fecha y Hora del Partido</label>
+      <div class="col-sm-9">
         <input type="datetime-local" class="form-control {{#if errors.fechaYHoraDelPartido}}is-invalid{{/if}}" id="fechaYHoraDelPartido" name="fechaYHoraDelPartido" value="{{values.fechaYHoraDelPartido}}">
         {{#if errors.fechaYHoraDelPartido}}
           <div class="invalid-feedback">
@@ -66,8 +66,8 @@
     </div>
 
     <div class="row mb-3">
-  <label for="lugarDelPartido" class="col-sm-2 col-form-label">Lugar del partido</label>
-  <div class="col-sm-10">
+  <label for="lugarDelPartido" class="col-sm-3 col-form-label">Lugar del partido</label>
+  <div class="col-sm-9">
     <input type="text" class="form-control {{#if errors.lugarDelPartido}}is-invalid{{/if}}" id="lugarDelPartido" name="lugarDelPartido" placeholder="Lugar del partido" value="{{values.lugarDelPartido}}">
     {{#if errors.lugarDelPartido}}
       <div class="invalid-feedback">
@@ -78,8 +78,8 @@
 </div>
 
     <div class="row mb-3">
-  <label for="tiempoDeInscripcion" class="col-sm-2 col-form-label">Tiempo de Inscripción</label>
-  <div class="col-sm-10">
+  <label for="tiempoDeInscripcion" class="col-sm-3 col-form-label">Tiempo de Inscripción</label>
+  <div class="col-sm-9">
     <input type="datetime-local" class="form-control {{#if errors.tiempoDeInscripcion}}is-invalid{{/if}}" id="tiempoDeInscripcion" name="tiempoDeInscripcion" value="{{values.tiempoDeInscripcion}}">
     {{#if errors.tiempoDeInscripcion}}
       <div class="invalid-feedback">
@@ -90,8 +90,8 @@
 </div>
 
     <div class="row mb-3">
-  <label for="duracionDelPartido" class="col-sm-2 col-form-label">Duración del Partido</label>
-  <div class="col-sm-10">
+  <label for="duracionDelPartido" class="col-sm-3 col-form-label">Duración del Partido</label>
+  <div class="col-sm-9">
     <input type="text" class="form-control {{#if errors.duracionDelPartido}}is-invalid{{/if}}" id="duracionDelPartido" name="duracionDelPartido" pattern="[0-2][0-9]:[0-5][0-9]" maxlength="5" placeholder="hh:mm" value="{{values.duracionDelPartido}}">
     {{#if errors.duracionDelPartido}}
       <div class="invalid-feedback">
@@ -102,8 +102,8 @@
 </div>
 
     <div class="row mb-3">
-  <label for="numeroDeJugadores" class="col-sm-2 col-form-label">Número de Jugadores</label>
-  <div class="col-sm-10">
+  <label for="numeroDeJugadores" class="col-sm-3 col-form-label">Número de Jugadores</label>
+  <div class="col-sm-9">
     <input type="number" class="form-control {{#if errors.numeroDeJugadores}}is-invalid{{/if}}" id="numeroDeJugadores" name="numeroDeJugadores" min="1" value="{{values.numeroDeJugadores}}">
     {{#if errors.numeroDeJugadores}}
       <div class="invalid-feedback">
@@ -114,8 +114,8 @@
 </div>
 
   <div class="row mb-3">
-  <label for="precioPorPersona" class="col-sm-2 col-form-label">Precio por Persona</label>
-  <div class="col-sm-10">
+  <label for="precioPorPersona" class="col-sm-3 col-form-label">Precio por Persona</label>
+  <div class="col-sm-9">
     <div class="input-group">
       <input type="number" class="form-control {{#if errors.precioPorPersona}}is-invalid{{/if}}" id="precioPorPersona" name="precioPorPersona" min="0.01" step="0.01" value="{{values.precioPorPersona}}">
       <span class="input-group-text">$</span>
@@ -129,8 +129,8 @@
 </div>
 
   <div class="row mb-3">
-  <label for="sexo" class="col-sm-2 col-form-label">Sexo</label>
-  <div class="col-sm-10">
+  <label for="sexo" class="col-sm-3 col-form-label">Sexo</label>
+  <div class="col-sm-9">
     <select class="form-select {{#if errors.sexo}}is-invalid{{/if}}" id="sexo" name="sexo" aria-label="Sexo">
       <option value="Mixto" selected>Mixto</option>
       <option value="Masculino">Masculino</option>
@@ -145,8 +145,8 @@
 </div>
 
   <div class="row mb-3">
-  <label for="nivel" class="col-sm-2 col-form-label">Nivel</label>
-  <div class="col-sm-10">
+  <label for="nivel" class="col-sm-3 col-form-label">Nivel</label>
+  <div class="col-sm-9">
     <div class="row">
       <div class="col">
         <label for="desde" class="form-label">Desde</label>
@@ -183,8 +183,8 @@
 </div>
 
 <div class="row mb-3">
-  <label for="normas" class="col-sm-2 col-form-label">Normas</label>
-  <div class="col-sm-10">
+  <label for="normas" class="col-sm-3 col-form-label">Normas</label>
+  <div class="col-sm-9">
     <textarea class="form-control {{#if errors.normas}}is-invalid{{/if}}" id="normas" rows="3" name="normas">{{values.normas}}</textarea>
     {{#if errors.normas}}
       <div class="invalid-feedback">

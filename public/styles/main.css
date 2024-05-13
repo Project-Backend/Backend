@@ -30,3 +30,54 @@ body, html {
 #navbarNav{
     color:#E58E00  ;
 }
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Estilos para el contenedor principal */
+.container {
+    background-color: #F5F5DC;
+    padding: 20px;
+}
+
+/* Estilos para los elementos de entrada */
+input[type="text"],
+input[type="datetime-local"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Estilos para el botón */
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilos para el formulario de eventos */
+#nombreDelDeporte,
+#provincia,
+#ciudad,
+#lugarDelPartido,
+#fechaYHoraDelPartido,
+#tiempoDeInscripcion,
+#duracion,
+#numeroDeJugadores,
+#precioPorPersona,
+#sexo,
+#nivelDesde,
+#nivelHasta,
+#Normas {
+    margin-bottom: 10px;
+}
