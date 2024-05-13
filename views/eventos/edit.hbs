@@ -1,68 +1,73 @@
-<form action="/eventos/{{evento._id}}/edit" method="POST"  style="max-width: 400px; margin:0 auto">
-    <div style="margin-bottom: 10px">
+<form action="/eventos/{{evento._id}}/edit" method="POST"
+    style="max-width: 400px; margin: 0 auto; background-color: #D2B48C; padding: 20px;">
+    <div style="margin-bottom: 10px;">
         <label for="nombreDelDeporte">Nombre Del Deporte</label>
         <input type="text" id="nombreDelDeporte" name="nombreDelDeporte" value="{{evento.nombreDelDeporte}}">
     </div>
 
-    <div style="margin-bottom: 10px">
+    <div style="margin-bottom: 10px;">
         <label for="provincia">Provincia</label>
         <input type="text" id="provincia" name="provincia" value="{{evento.provincia}}">
     </div>
 
-    <div style="margin-bottom: 10px">
+    <div style="margin-bottom: 10px;">
         <label for="ciudad">Ciudad</label>
         <input type="text" id="ciudad" name="ciudad" value="{{evento.ciudad}}">
     </div>
 
-    <div style="margin-bottom: 10px">
+    <div style="margin-bottom: 10px;">
         <label for="lugarDelPartido">Lugar Del Partido</label>
         <input type="text" id="lugarDelPartido" name="lugarDelPartido" value="{{evento.lugarDelPartido}}">
     </div>
 
-    <div style="margin-bottom: 10px">
+    <div style="margin-bottom: 10px;">
         <label for="fechaYHoraDelPartido">Fecha Y Hora</label>
-        <input type="datetime-local" id="fechaYHoraDelPartido" name="fechaYHoraDelPartido" value="{{evento.fechaYHoraDelPartido}}">
+        <input type="datetime-local" id="fechaYHoraDelPartido" name="fechaYHoraDelPartido"
+            value="{{evento.fechaYHoraDelPartido}}">
     </div>
 
-    <div style="margin-bottom: 10px">
+    <div style="margin-bottom: 10px;">
         <label for="tiempoDeInscripcion">Tiempo de Inscripcion</label>
-        <input type="datetime-local" id="tiempoDeInscripcion" name="tiempoDeInscripcion" value="{{evento.tiempoDeInscripcion}}">
+        <input type="datetime-local" id="tiempoDeInscripcion" name="tiempoDeInscripcion"
+            value="{{evento.tiempoDeInscripcion}}">
     </div>
 
-    <div style="margin-bottom: 10px">
+    <div style="margin-bottom: 10px;">
         <label for="duracion">Duracion</label>
         <input type="number" id="duracion" name="duracion" value="{{evento.duracion}}">
     </div>
 
-    <div style="margin-bottom: 10px">
+    <div style="margin-bottom: 10px;">
         <label for="numeroDeJugadores">Numero de Jugadores</label>
         <input type="number" id="numeroDeJugadores" name="numeroDeJugadores" value="{{evento.numeroDeJugadores}}">
     </div>
 
-    <div style="margin-bottom: 10px">
+    <div style="margin-bottom: 10px;">
         <label for="precioPorPersona">Precio por Persona</label>
         <input type="number" id="precioPorPersona" name="precioPorPersona" value="{{evento.precioPorPersona}}">
     </div>
 
-    <div style="margin-bottom: 10px">
+    <div style="margin-bottom: 10px;">
         <label for="sexo">Sexo</label>
         <input type="text" id="sexo" name="sexo" value="{{evento.sexo}}">
     </div>
 
-    <div style="margin-bottom: 10px">
+    <div style="margin-bottom: 10px;">
         <label for="nivelDesde">Nivel Desde</label>
         <input type="text" id="nivelDesde" name="nivelDesde" value="{{evento.nivelDesde}}">
     </div>
 
-    <div style="margin-bottom: 10px">
+    <div style="margin-bottom: 10px;">
         <label for="nivelHasta">Nivel Hasta</label>
         <input type="text" id="nivelHasta" name="nivelHasta" value="{{evento.nivelHasta}}">
     </div>
 
-    <div style="margin-bottom: 10px">
+    <div style="margin-bottom: 10px;">
         <label for="Normas">Normas</label>
         <input type="text" id="Normas" name="Normas" value="{{evento.Normas}}">
     </div>
 
-    <button type="submit" style="width: 100%: padding:10px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Save Changes</button>
+    <button type="submit"
+        style="width: 100%; padding: 10px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Save
+        Changes</button>
 </form>
