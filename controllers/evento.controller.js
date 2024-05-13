@@ -95,20 +95,36 @@ module.exports.getEventsId = (req, res, next) => {
     .catch(err => next(err))    
 }
 
-
+function checkEventOwner(eventId, userId) {
+    return Evento.findById(eventId)
+        .then(event => {
+            if (event && event.usuario.toString() !== userId.toString()) {
+                return false
+            }
+            return true
+        })
+}
 
 
 module.exports.editEvent = (req, res, next) => {
-    Evento
-    .findById(req.params.id)
-        .then(evento => {
-            if (!evento) {
-                next(createHttpError(404, 'Evento no encontrado'));
+    checkEventOwner(req.params.id, req.currentUser._id)
+        .then(isValid => {
+            if (isValid) {
+                Evento
+                .findById(req.params.id)
+                    .then(evento => {
+                        if (!evento) {
+                            next(createHttpError(404, 'Evento no encontrado'));
+                        } else {
+                            res.render('eventos/edit', { evento });
+                        }
+                    })
+                    .catch(err => next(err));
             } else {
-                res.render('eventos/edit', { evento });
+                res.redirect('/')
             }
         })
-        .catch(err => next(err));
+
 };
 
 module.exports.doEditEvent = (req, res, next) => {
@@ -127,7 +143,10 @@ module.exports.doEditEvent = (req, res, next) => {
 
 // delete the event
 module.exports.deleteEvent = (req, res, next) => {
-    Evento
+    checkEventOwner(req.params.id, req.currentUser._id)
+    .then(isValid =>{
+        if (isValid){
+           Evento
     .findByIdAndDelete(req.params.id)
         .then(event => {
             if (!event) {
@@ -136,5 +155,10 @@ module.exports.deleteEvent = (req, res, next) => {
                 res.redirect(`/profile`);
             }
         })
-        .catch(err => next(err));
+        .catch(err => next(err));  
+        } else {
+            res.redirect("/")
+        }
+    })
+   
 }

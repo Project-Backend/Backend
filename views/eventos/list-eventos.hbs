@@ -1,22 +1,33 @@
-<h1 class="titlepage text-center mt-4">Eventos Deportivos</h1>
-<h3 class="titlepage text-center">Eventos</h3>
+<div style="background-color: #F5F5DC; padding: 20px;">
+    <div class="container" style="background-color: #E58E00; border-radius: 10px;">
+        <h1 class="titlepage text-center mt-4">Eventos Deportivos</h1>
 
-<div class="row justify-content-center flex-wrap mt-3 gap-3">
-    {{#each events}}
-    <div class="event card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">{{nombreDelDeporte}}</h5>
-            <p class="card-text">Provincia: {{provincia}}</p>
-            <p class="card-text">Ciudad: {{ciudad}}</p>
-            <p class="card-text">Lugar del partido: {{lugarDelPartido}}</p>
-            <p class="card-text">Fecha y Hora del partido: {{fechaYHoraDelPartido}}</p>
-            <p class="card-text">Duración del partido: {{duracionDelPartido}} minutos</p>
-            <p class="card-text">Número de Jugadores: {{numeroDeJugadores}}</p>
-            <p class="card-text">Precio por Persona: {{precioPorPersona}}</p>
-            <p class="card-text">Sexo: {{sexo}}</p>
-            <p class="card-text">Normas: {{normas}}</p>
-            <a href="/eventos/{{_id}}/detail" class="btn btn-primary">Ver Más</a>
+        <div class="row justify-content-center flex-wrap mt-3 gap-3">
+            {{#each events}}
+            <div class="col-md-4">
+                <div class="event card" style="width: 100%; background-color:#a7b7c4;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 30px;">{{nombreDelDeporte}}</h5>
+                        <p class="card-text"><strong>Ciudad:</strong> {{ciudad}}</p>
+                        <p class="card-text"><strong>Lugar del partido:</strong> {{lugarDelPartido}}</p>
+                        <p class="card-text"><strong>Fecha y Hora del partido:</strong> {{formatDate fechaYHoraDelPartido}}</p>
+                        <p class="card-text"><strong>Duración del partido:</strong> {{duracionDelPartido}} minutos</p>
+                        <p class="card-text"><strong>Precio por Persona:</strong> {{precioPorPersona}} &euro;</p>
+                        <!-- Aquí cambiamos el color del botón -->
+                        <a href="/eventos/{{_id}}/detail" class="btn" style="background-color: #4CAF50; /* Green */
+                        border: none;
+                        color:black ;
+                        padding: 15px 32px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;
+                        margin: 4px 2px;
+                        cursor: pointer;">Detalles</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
         </div>
     </div>
-    {{/each}}
 </div>

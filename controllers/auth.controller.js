@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const User = require('../models/User.model')
 const Registrar = require("../models/Registrar.model")
-const Event = require ("../models/Evento.model")
+const Evento = require ("../models/Evento.model")
 
 
 module.exports.login = (req, res, next) => {
@@ -64,7 +64,7 @@ module.exports.getCurrentUserProfile = (req, res, next) => {
         const eventos = registros
         .filter(registro => registro.evento !== null)
         .map(registro => registro.evento)
-    
+
         res.render("profile", { eventos })
     })
     .catch(err => next(err))

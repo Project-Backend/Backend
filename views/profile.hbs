@@ -1,26 +1,67 @@
-<div class="container mt-3">
-  <div class="d-flex flex-column text-center align-items-center gap-2">
-    <img class="rounded-circle border" src="{{currentUser.imgUrl}}" width="100" />
-    <div>
-      <h4>{{currentUser.username}}</h4>
-      <p>{{currentUser.email}}</p>
+<div style="background-color: #D2B48C; padding: 20px; height: 100vh;">
+    <div class="container mt-3" style="background-color: #F5F5DC; padding: 20px;">
+        <h1>Mi perfil</h1>
+        <div class="d-flex flex-column text-center align-items-center gap-2">
+            <img class="rounded-circle border" src="{{currentUser.imgUrl}}" width="100" />
+            <div>
+                <h4>{{currentUser.username}}</h4>
+                <hr style="border-top: 1px solid black; width: 100%;">
+                <p>{{currentUser.email}}</p>
+            </div>
+        </div>
+
+        <hr style="border-top: 1px solid black; width: 100%; margin: 20px 0;">
+
+        <div class="row mt-4">
+            <div class="col">
+                <h2 style="color: #E58E00;">Mis próximas actividades</h2>
+                {{#if eventos}}
+                {{#each eventos as |evento|}}
+                <div class="row mb-4" style=" border-radius: 10px; padding: 10px;">
+                    <div class="col">
+                        {{> eventocard evento=evento}}
+                    </div>
+                </div>
+                {{/each}}
+                {{else}}
+                <p style="color: #E58E00;">No tienes eventos aún. Visita <a href="/eventos/list-eventos">nuestro listado</a> para ver si alguno te gusta.</p>
+                {{/if}}
+            </div>
+
+            <div class="col">
+                <h2 style="color: #E58E00;">Eventos que he organizado:</h2>
+                {{#if eventos}}
+                {{#each currentUser.events as |evento|}}
+                <div class="row mb-4" style=" border-radius: 10px; padding: 10px;">
+                    <div class="col">
+                        {{> eventocard evento=evento}}
+                        <a href="/eventos/{{evento._id}}/edit" class="btn" style="background-color: #4CAF50; /* Green */
+                        border: none;
+                        color:black ;
+                        padding: 10px 20px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;
+                        margin: 4px 2px;
+                        cursor: pointer;">Editar Evento</a>
+                        <a href="/eventos/{{evento._id}}/delete" class="btn" style="background-color: #FF6347; /* Red */
+                        border: none;
+                        color:black ;
+                        padding: 10px 20px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;
+                        margin: 4px 2px;
+                        cursor: pointer;">Eliminar Evento</a>
+                    </div>
+                </div>
+                {{/each}}
+                {{else}}
+                <p style="color: #E58E00;">No tienes eventos aún. Visita <a href="/eventos/list-eventos">nuestro listado</a> para ver si alguno te gusta.</p>
+                {{/if}}
+            </div>
+        </div>
     </div>
-  </div>
-
-  <h2 class="mt-4">Mis eventos</h2>
-  {{#if eventos}}
-
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-    {{#each eventos as |evento|}}
-      <div class="col">
-        {{> eventocard evento=evento}}
-        <a href="/eventos/{{evento._id}}/edit" class="btn btn-primary mt-4">Editar Evento</a>
-        <a href="/eventos/{{evento._id}}/delete" class="btn btn-danger mt-4">Eliminar Evento</a>
-      </div>
-    {{/each}}
-  </div>
-
-  {{else}}
-    <p>No tienes eventos aun. Visita <a href="/eventos/list-eventos">nuestro listado</a> para ver si alguno te gusta.</p>
-  {{/if}}
 </div>
