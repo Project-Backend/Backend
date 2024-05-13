@@ -24,7 +24,7 @@
                 </div>
                 {{/each}}
                 {{else}}
-                <p style="color: #E58E00;">No tienes eventos aún. Visita <a href="/eventos/list-eventos">nuestro listado</a> para ver si alguno te gusta.</p>
+                <p style="color: #E58E00;">No tienes eventos aún. Visita <a href="/eventos/list-eventos" style="text-decoration: none; color: green;">nuestro listado</a> para ver si alguno te gusta.</p>
                 {{/if}}
             </div>
 
@@ -35,20 +35,20 @@
                 <div class="row mb-4" style=" border-radius: 10px; padding: 10px;">
                     <div class="col">
                         {{> eventocard evento=evento}}
-                        <a href="/eventos/{{evento._id}}/edit" class="btn" style="background-color: #4CAF50; /* Green */
+                        <a href="/eventos/{{evento._id}}/edit" class="btn" style="background-color: #5d81cf; /* Green */
                         border: none;
                         color:black ;
-                        padding: 10px 20px;
+                        padding: 5px 20px;
                         text-align: center;
                         text-decoration: none;
                         display: inline-block;
                         font-size: 16px;
                         margin: 4px 2px;
                         cursor: pointer;">Editar Evento</a>
-                        <a href="/eventos/{{evento._id}}/delete" class="btn" style="background-color: #FF6347; /* Red */
+                        <a href="/eventos/{{evento._id}}/delete" class="btn" onclick="return confirm('¿Estás seguro de que deseas eliminar este evento?')" style="background-color: #FF6347; /* Red */
                         border: none;
                         color:black ;
-                        padding: 10px 20px;
+                        padding: 5px 20px;
                         text-align: center;
                         text-decoration: none;
                         display: inline-block;
@@ -59,7 +59,7 @@
                 </div>
                 {{/each}}
                 {{else}}
-                <p style="color: #E58E00;">No tienes eventos aún. Visita <a href="/eventos/list-eventos">nuestro listado</a> para ver si alguno te gusta.</p>
+                
                 {{/if}}
             </div>
         </div>

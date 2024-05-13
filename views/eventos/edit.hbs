@@ -1,73 +1,88 @@
-<form action="/eventos/{{evento._id}}/edit" method="POST"
-    style="max-width: 400px; margin: 0 auto; background-color: #D2B48C; padding: 20px;">
-    <div style="margin-bottom: 10px;">
-        <label for="nombreDelDeporte">Nombre Del Deporte</label>
-        <input type="text" id="nombreDelDeporte" name="nombreDelDeporte" value="{{evento.nombreDelDeporte}}">
+<form action="/eventos/{{evento._id}}/edit" method="POST" class="container" style="max-width: 400px; margin: 0 auto;">
+    <div class="mb-3">
+        <label for="nombreDelDeporte" class="form-label">Nombre del Deporte</label>
+        <input type="text" class="form-control" id="nombreDelDeporte" name="nombreDelDeporte" value="{{evento.nombreDelDeporte}}">
     </div>
 
-    <div style="margin-bottom: 10px;">
-        <label for="provincia">Provincia</label>
-        <input type="text" id="provincia" name="provincia" value="{{evento.provincia}}">
+    <div class="mb-3">
+        <label for="provincia" class="form-label">Provincia</label>
+        <input type="text" class="form-control" id="provincia" name="provincia" value="{{evento.provincia}}">
     </div>
 
-    <div style="margin-bottom: 10px;">
-        <label for="ciudad">Ciudad</label>
-        <input type="text" id="ciudad" name="ciudad" value="{{evento.ciudad}}">
+    <div class="mb-3">
+        <label for="ciudad" class="form-label">Ciudad</label>
+        <input type="text" class="form-control" id="ciudad" name="ciudad" value="{{evento.ciudad}}">
     </div>
 
-    <div style="margin-bottom: 10px;">
-        <label for="lugarDelPartido">Lugar Del Partido</label>
-        <input type="text" id="lugarDelPartido" name="lugarDelPartido" value="{{evento.lugarDelPartido}}">
+    <div class="mb-3">
+        <label for="lugarDelPartido" class="form-label">Lugar del Partido</label>
+        <input type="text" class="form-control" id="lugarDelPartido" name="lugarDelPartido" value="{{evento.lugarDelPartido}}">
     </div>
 
-    <div style="margin-bottom: 10px;">
-        <label for="fechaYHoraDelPartido">Fecha Y Hora</label>
-        <input type="datetime-local" id="fechaYHoraDelPartido" name="fechaYHoraDelPartido"
-            value="{{evento.fechaYHoraDelPartido}}">
+    <div class="mb-3">
+        <label for="fechaYHoraDelPartido" class="form-label">Fecha y Hora del Partido</label>
+        <input type="datetime-local" class="form-control" id="fechaYHoraDelPartido" name="fechaYHoraDelPartido" value="{{evento.fechaYHoraDelPartido}}">
     </div>
 
-    <div style="margin-bottom: 10px;">
-        <label for="tiempoDeInscripcion">Tiempo de Inscripcion</label>
-        <input type="datetime-local" id="tiempoDeInscripcion" name="tiempoDeInscripcion"
-            value="{{evento.tiempoDeInscripcion}}">
+    <div class="mb-3">
+        <label for="tiempoDeInscripcion" class="form-label">Tiempo de Inscripción</label>
+        <input type="datetime-local" class="form-control" id="tiempoDeInscripcion" name="tiempoDeInscripcion" value="{{evento.tiempoDeInscripcion}}">
     </div>
 
-    <div style="margin-bottom: 10px;">
-        <label for="duracion">Duracion</label>
-        <input type="number" id="duracion" name="duracion" value="{{evento.duracion}}">
+    <div class="mb-3">
+        <label for="duracion" class="form-label">Duración</label>
+        <input type="number" class="form-control" id="duracion" name="duracion" value="{{evento.duracion}}">
     </div>
 
-    <div style="margin-bottom: 10px;">
-        <label for="numeroDeJugadores">Numero de Jugadores</label>
-        <input type="number" id="numeroDeJugadores" name="numeroDeJugadores" value="{{evento.numeroDeJugadores}}">
+    <div class="mb-3">
+        <label for="numeroDeJugadores" class="form-label">Número de Jugadores</label>
+        <input type="number" class="form-control" id="numeroDeJugadores" name="numeroDeJugadores" value="{{evento.numeroDeJugadores}}">
     </div>
 
-    <div style="margin-bottom: 10px;">
-        <label for="precioPorPersona">Precio por Persona</label>
-        <input type="number" id="precioPorPersona" name="precioPorPersona" value="{{evento.precioPorPersona}}">
+    <div class="mb-3">
+        <label for="precioPorPersona" class="form-label">Precio por Persona</label>
+        <div class="input-group">
+            <input type="number" class="form-control" id="precioPorPersona" name="precioPorPersona" min="0.01" step="0.01" value="{{evento.precioPorPersona}}">
+            <span class="input-group-text">$</span>
+        </div>
     </div>
 
-    <div style="margin-bottom: 10px;">
-        <label for="sexo">Sexo</label>
-        <input type="text" id="sexo" name="sexo" value="{{evento.sexo}}">
+    <div class="mb-3">
+        <label for="sexo" class="form-label">Sexo</label>
+        <select class="form-select" id="sexo" name="sexo">
+            <option value="Mixto" selected>Mixto</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+        </select>
     </div>
 
-    <div style="margin-bottom: 10px;">
-        <label for="nivelDesde">Nivel Desde</label>
-        <input type="text" id="nivelDesde" name="nivelDesde" value="{{evento.nivelDesde}}">
+    <div class="row mb-3">
+        <div class="col">
+            <label for="nivelDesde" class="form-label">Nivel Desde</label>
+            <select class="form-select" id="nivelDesde" name="nivelDesde">
+                <option value="" disabled selected hidden>Desde</option>
+                <option value="Iniciación">Iniciación</option>
+                <option value="Principiante">Principiante</option>
+                <option value="Medio">Medio</option>
+                <option value="Avanzado">Avanzado</option>
+            </select>
+        </div>
+        <div class="col">
+            <label for="nivelHasta" class="form-label">Nivel Hasta</label>
+            <select class="form-select" id="nivelHasta" name="nivelHasta">
+                <option value="" disabled selected hidden>Hasta</option>
+                <option value="Iniciación">Iniciación</option>
+                <option value="Principiante">Principiante</option>
+                <option value="Medio">Medio</option>
+                <option value="Avanzado">Avanzado</option>
+            </select>
+        </div>
     </div>
 
-    <div style="margin-bottom: 10px;">
-        <label for="nivelHasta">Nivel Hasta</label>
-        <input type="text" id="nivelHasta" name="nivelHasta" value="{{evento.nivelHasta}}">
+    <div class="mb-3">
+        <label for="Normas" class="form-label">Normas</label>
+        <textarea class="form-control" id="Normas" rows="3" name="Normas">{{evento.Normas}}</textarea>
     </div>
 
-    <div style="margin-bottom: 10px;">
-        <label for="Normas">Normas</label>
-        <input type="text" id="Normas" name="Normas" value="{{evento.Normas}}">
-    </div>
-
-    <button type="submit"
-        style="width: 100%; padding: 10px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Save
-        Changes</button>
+    <button type="submit" class="btn btn-primary" style="width: 100%;">Guardar Cambios</button>
 </form>

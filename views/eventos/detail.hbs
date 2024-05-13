@@ -1,11 +1,16 @@
-<div class="container my-3" style="background-color: #D2B48C; padding: 20px; height: 100vh;">
+<div style="background-color: #F5F5DC; height: 100vh;">
+<div class="container my-3" style="background-color: #f0f0f0; padding: 20px; margin-top: 0 !important;">
     <div class="row row-cols-1 row-cols-md-2 align-items-start">
         <div class="col">
             <img class="img-fluid w-100" src="{{event.imgUrl}}" alt="imagen deporte" style="max-height: 500px;">
             <div class="mt-3">
-                <h3>Jugadores Registrados ({{event.registros.length}})</h3>
-                <ul style="list-style-type: none;">
+                <h3 style="color: #333;">Jugadores Registrados ({{event.registros.length}})</h3>
+                <ul class="list-unstyled">
                     {{#each event.registros as |registro|}}
+                    <li class="mb-3">
+                        <a href="/usuario/{{registro.user._id}}" class="text-decoration-none d-flex align-items-center">
+                            <img class="rounded-circle border" src="{{registro.user.imgUrl}}" alt="profile picture" width="40" style="margin-right: 10px;">
+                            <span>{{registro.user.username}}</span>
                     <li>
                         <a href="/usuario/{{registro.user._id}}" style="text-decoration: none;">
                             <img class="rounded-circle border" src="{{registro.user.imgUrl}}" alt="profile picture"
@@ -13,13 +18,12 @@
                             {{registro.user.username}}
                         </a>
                     </li>
-                    <hr>
                     {{/each}}
                 </ul>
             </div>
         </div>
         <div class="col">
-            <h1>{{event.nombreDelDeporte}}</h1>
+            <h1 style="color: #333;">{{event.nombreDelDeporte}}</h1>
             <p><strong>Fecha y Hora:</strong> {{formatDate event.fechaYHoraDelPartido}}</p>
             <p><strong>Tiempo de Inscripción:</strong> {{formatDate event.tiempoDeInscripcion}}</p>
             <p><strong>Duración del Partido:</strong> {{event.duracionDelPartido}}</p>
@@ -28,16 +32,15 @@
             <p><strong>Número de jugadores:</strong> {{event.numeroDeJugadores}}</p>
             {{#unless registroCerrado}}
             <form action="/eventos/{{event._id}}/registrar" method="POST">
-                <button
-                    class="btn {{#if registrado}}btn-danger{{else}}btn-outline-danger{{/if}}">Registrar/Cancelar</button>
-            </form>
+               <button class="btn {{#if registrado}}btn-danger{{else}}btn-outline-danger{{/if}}" style="background-color: #4CAF50; color: white; border: none; margin-bottom: 10px;">Registrar/Cancelar</button>
+               </form>
             <hr>
             {{/unless}}
             <div class="mt-3">
-                <h3>Organizador:</h3>
-                <p><a href="/usuario/{{event.usuario._id}}"
-                        style="text-decoration: none;">{{event.usuario.username}}</a></p>
+                <h3 style="color: #333;">Organizador:</h3>
+                <p><a href="/usuario/{{event.usuario._id}}" class="text-decoration-none" style="color: #007bff; text-decoration: underline;">{{event.usuario.username}}</a></p>
             </div>
         </div>
     </div>
+</div>
 </div>
